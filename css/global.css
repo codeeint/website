@@ -193,15 +193,18 @@ footer { background: #09090b; border-top: none; padding: 80px 48px 40px; }
 
 @media (max-width: 1024px) {
   .nav-center, .nav-right { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: var(--surface-light); border: 1px solid var(--surface-border); }
+  .nav-logo-img { height: 80px; transform: translateY(4px); } /* Smaller logo on mobile */
+  #navbar { padding: 0 24px; height: 70px; top: 12px; border-radius: 35px; width: calc(100% - 24px); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 48px; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-bottom { flex-direction: column; gap: 20px; align-items: flex-start; }
   .capabilities-grid, .testimonials-grid { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 640px) {
-  #navbar { padding: 0 20px; height: 70px; top: 12px; border-radius: 35px; width: calc(100% - 24px); }
-  :root { --nav-h: 70px; }
+  .nav-logo-img { height: 70px; transform: translateY(2px); } /* Even smaller on tiny screens */
+  #navbar { padding: 0 16px; height: 60px; top: 8px; border-radius: 30px; width: calc(100% - 16px); }
+  :root { --nav-h: 60px; }
   .section { padding: 72px 20px; }
   footer { padding: 64px 20px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
