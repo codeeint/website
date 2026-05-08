@@ -73,9 +73,19 @@
   .tech-split, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
   .rs-h1 { font-size: 52px; }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .pillars-grid { grid-template-columns: 1fr; }
-  .section-std { padding: 80px 24px; }
+  .section-std { padding: 60px 20px; }
+  .rs-hero { padding: calc(var(--nav-h) + 40px) 20px 80px; }
+  .rs-h1 { font-size: 40px; letter-spacing: -1px; }
+  .rs-sub { font-size: 16px; }
+  .ti-icon { width: 44px; height: 44px; font-size: 20px; }
+  .tech-item { gap: 16px; }
+  .tech-split .reveal-right { padding: 40px 24px; border-radius: 32px; }
+}
+@media (max-width: 480px) {
+  .rs-h1 { font-size: 34px; }
+  .std-h2 { font-size: 32px; }
 }
 </style>
 </head>

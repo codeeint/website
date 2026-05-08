@@ -114,12 +114,28 @@
 
 @media (max-width: 1024px) {
   .feat-row, .tiers-grid, .comp-split, .docs-grid { grid-template-columns: repeat(2, 1fr); }
+  .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+  .faq-title { font-size: 48px; letter-spacing: -2px; }
+  .tech-pillar-row { grid-template-columns: 1fr !important; gap: 40px !important; margin-bottom: 80px !important; }
+  .tech-pillar-row .tp-content { order: 1 !important; }
+  .tech-pillar-row .tp-image { order: 2 !important; padding: 24px !important; }
 }
-@media (max-width: 640px) {
+
+@media (max-width: 768px) {
   .feat-row, .tiers-grid, .comp-split, .docs-grid { grid-template-columns: 1fr; }
-  .sh-h1 { font-size: 40px; }
-  .std-h2 { font-size: 34px; }
-  .section-std { padding: 80px 24px; }
+  .sh-h1 { font-size: 44px; }
+  .std-h2 { font-size: 36px; }
+  .section-std { padding: 60px 20px; }
+  .sh-hero { padding: calc(var(--nav-h) + 40px) 20px 60px; }
+  .feat-box { padding: 24px 16px; }
+}
+
+@media (max-width: 480px) {
+  .sh-h1 { font-size: 34px; }
+  .std-h2 { font-size: 28px; }
+  .sh-sub { font-size: 15px; }
+  .tier-card { padding: 32px 24px; }
+  .feat-row { gap: 16px; }
 }
 
 /* FAQ Section Redesign */
@@ -391,8 +407,8 @@
     </div>
 
     <!-- PILLAR 1: STEAM -->
-    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
-      <div style="order:1;">
+    <div class="reveal tech-pillar-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
+      <div class="tp-content" style="order:1;">
         <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Holistic Growth</div>
         <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Master STEAM Knowledge.</h3>
         <p class="std-p" style="font-size:16px;">Our program transcends simple coding. We cover Physics, Engineering, Mathematics, and Art, helping children cultivate a rigorous scientific spirit and creative problem-solving mindset from an early age.</p>
@@ -401,14 +417,14 @@
           <span style="background:rgba(249,115,22,0.1); color:var(--accent); padding:6px 12px; border-radius:8px; font-size:12px; font-weight:700;">Self-Exploration</span>
         </div>
       </div>
-      <div style="order:2; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+      <div class="tp-image" style="order:2; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
         <img src="assets/img/steam_infographic.png" alt="STEAM Knowledge Infographic" style="width:100%; height:auto; border-radius:16px;">
       </div>
     </div>
 
     <!-- PILLAR 2: GRAPHICAL -->
-    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
-      <div style="order:2;">
+    <div class="reveal tech-pillar-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
+      <div class="tp-content" style="order:2;">
         <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Foundation Level</div>
         <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Online Graphical Programming.</h3>
         <p class="std-p" style="font-size:16px;">Using world-class MakeCode software, students learn the logic of programming through an intuitive drag-and-drop interface. Accessible across Mobile, Tablet, and Desktop for seamless learning anywhere.</p>
@@ -418,14 +434,14 @@
           <div style="text-align:center;"><i class="ph-duotone ph-desktop" style="font-size:24px; color:var(--accent);"></i><div style="font-size:10px; font-weight:700; margin-top:4px;">Computer</div></div>
         </div>
       </div>
-      <div style="order:1; background:var(--bg-card); border-radius:32px; padding:24px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+      <div class="tp-image" style="order:1; background:var(--bg-card); border-radius:32px; padding:24px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
         <img src="assets/img/graphical_coding_v2.png" alt="Student Coding on Tablet" style="width:100%; height:auto; border-radius:16px;">
       </div>
     </div>
 
     <!-- PILLAR 3: PYTHON -->
-    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
-      <div style="order:1;">
+    <div class="reveal tech-pillar-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
+      <div class="tp-content" style="order:1;">
         <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Advanced Level</div>
         <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Industrial Python Programming.</h3>
         <p class="std-p" style="font-size:16px;">Transition from blocks to professional text-based code. Python's universal appeal and portability make it the perfect choice for teenagers (12+) to explore AI, Data Science, and Robotics Control.</p>
@@ -434,14 +450,14 @@
           <li>Edge computing & autonomous logic</li>
         </ul>
       </div>
-      <div style="order:2; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+      <div class="tp-image" style="order:2; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
         <img src="assets/img/python_coding.png" alt="Python Code on Laptop" style="width:100%; height:auto; border-radius:16px;">
       </div>
     </div>
 
     <!-- PILLAR 4: HARDWARE -->
-    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center;">
-      <div style="order:2;">
+    <div class="reveal tech-pillar-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center;">
+      <div class="tp-content" style="order:2;">
         <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Hardware Excellence</div>
         <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Exclusive Sensor Modules.</h3>
         <p class="std-p" style="font-size:16px;">Our modules are built with environmentally friendly ABS material. They are wear-resistant, safe, and non-toxic. Features like quick connection and building-block compatibility make assembly effortless.</p>
@@ -450,7 +466,7 @@
           <div style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600;"><i class="ph-duotone ph-stack" style="color:var(--accent);"></i> Cascade Design</div>
         </div>
       </div>
-      <div style="order:1; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+      <div class="tp-image" style="order:1; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
         <img src="assets/img/hardware_sensors.png" alt="Modular Hardware Sensors" style="width:100%; height:auto; border-radius:16px;">
       </div>
     </div>

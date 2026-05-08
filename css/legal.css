@@ -564,10 +564,20 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .hero { padding-top: 8rem; }
+    .hero { padding-top: 100px; padding-bottom: 60px; min-height: auto; }
     .hero-title { font-size: 2.5rem; }
     .hero-stats { flex-direction: column; gap: 2rem; }
     .hardware-grid { grid-template-columns: 1fr; }
     .programs-grid { grid-template-columns: 1fr; }
     .footer-cta h2 { font-size: 2rem; }
+    .section-title { font-size: 2.5rem; }
+    .container { padding: 0 1.5rem; }
+    .hero-actions { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+    .btn { width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 2rem; }
+    .section-title { font-size: 2rem; }
+    .stat-item h3 { font-size: 2rem; }
 }

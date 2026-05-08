@@ -55,11 +55,17 @@
   .ch-inner { grid-template-columns: 1fr; gap: 48px; }
   .form-inner { grid-template-columns: 1fr; gap: 48px; }
 }
-@media (max-width: 640px) {
-  .contact-hero { padding: calc(var(--nav-h) + 40px) 24px 60px; }
-  .ch-h1 { font-size: 42px; }
+@media (max-width: 768px) {
+  .contact-hero { padding: calc(var(--nav-h) + 40px) 20px 60px; }
+  .form-section { padding: 60px 20px; }
+  .ch-h1 { font-size: 38px; }
   .maintenance-card { padding: 40px 24px; }
   .maintenance-card a { font-size: 18px !important; padding: 12px 24px !important; width: 100%; box-sizing: border-box; }
+}
+@media (max-width: 480px) {
+  .ch-h1 { font-size: 32px; }
+  .ch-sub { font-size: 14px; }
+  .cic { padding: 16px; }
 }
 </style>
 </head>

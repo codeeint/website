@@ -116,12 +116,21 @@
   .contact-info-card { position: static; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .metrics-row, .wn-fact-grid, .progs-grid, .steps-wrap, .docs-grid, .packages-grid { grid-template-columns: 1fr; }
   .form-row, .checkbox-grid { grid-template-columns: 1fr; }
   .ch-h1 { font-size: 44px; }
   .std-h2 { font-size: 36px; }
   .enquiry-form { padding: 24px; }
+  .section-std { padding: 60px 20px; }
+  .ch-hero { padding: calc(var(--nav-h) + 40px) 20px 60px; }
+}
+
+@media (max-width: 480px) {
+  .ch-h1 { font-size: 36px; }
+  .mb-val { font-size: 32px; }
+  .std-h2 { font-size: 28px; }
+  .pack-card { padding: 32px 24px; }
 }
 
 /* FAQ & Contact Styles */
