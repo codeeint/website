@@ -58,12 +58,7 @@
 .std-h2 { font-family: var(--font-heading); font-size: 44px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--text-main); }
 .std-p { font-size: 17px; color: var(--text-muted); line-height: 1.8; }
 
-/* Tables */
-.table-wrap { max-width: 1200px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 48px; }
-.std-table { width: 100%; border-collapse: collapse; }
-.std-table th { padding: 24px; background: var(--surface-light); font-family: var(--font-heading); font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; text-align: left; border-bottom: 1px solid var(--surface-border); }
-.std-table td { padding: 20px 24px; border-bottom: 1px solid var(--surface-border); font-size: 14px; color: var(--text-main); vertical-align: top; line-height: 1.6; }
-.std-table tr:hover td { background: rgba(249,115,22,0.02); }
+/* Tables rely on global.css .table-wrap and .std-table */
 
 /* Tiers Grid */
 .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
@@ -118,7 +113,7 @@
   .faq-title { font-size: 48px; letter-spacing: -2px; }
   .tech-pillar-row { grid-template-columns: 1fr !important; gap: 40px !important; margin-bottom: 80px !important; }
   .tech-pillar-row .tp-content { order: 1 !important; }
-  .tech-pillar-row .tp-image { order: 2 !important; padding: 24px !important; }
+  .tech-pillar-row .tp-image { order: 2 !important; padding: 20px !important; }
 }
 
 @media (max-width: 768px) {
@@ -134,8 +129,10 @@
   .sh-h1 { font-size: 34px; }
   .std-h2 { font-size: 28px; }
   .sh-sub { font-size: 15px; }
-  .tier-card { padding: 32px 24px; }
+  .tier-card { padding: 32px 20px; }
   .feat-row { gap: 16px; }
+  .tech-pillar-row { gap: 24px !important; margin-bottom: 60px !important; }
+  .tech-pillar-row .tp-image { padding: 12px !important; }
 }
 
 /* FAQ Section Redesign */

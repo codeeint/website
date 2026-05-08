@@ -66,13 +66,7 @@
 .std-h2 { font-family: var(--font-heading); font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--text-main); }
 .std-p { font-size: 17px; color: var(--text-muted); line-height: 1.8; }
 
-/* Tables */
-.table-wrap { max-width: 1200px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 48px; }
-.std-table { width: 100%; border-collapse: collapse; }
-.std-table th { padding: 24px; background: var(--surface-light); font-family: var(--font-heading); font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; text-align: left; border-bottom: 1px solid var(--surface-border); }
-.std-table td { padding: 20px 24px; border-bottom: 1px solid var(--surface-border); font-size: 14px; color: var(--text-main); vertical-align: top; line-height: 1.6; }
-.std-table tr:last-child td { border-bottom: none; }
-.table-highlight { font-weight: 800; color: var(--accent); }
+/* Tables rely on global.css .table-wrap and .std-table */
 
 /* Service Cards */
 .progs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
@@ -127,10 +121,11 @@
 }
 
 @media (max-width: 480px) {
-  .ch-h1 { font-size: 36px; }
+  .ch-h1 { font-size: 34px; line-height: 1.2; }
   .mb-val { font-size: 32px; }
   .std-h2 { font-size: 28px; }
-  .pack-card { padding: 32px 24px; }
+  .pack-card { padding: 32px 20px; }
+  .metric-box { padding: 32px 20px; }
 }
 
 /* FAQ & Contact Styles */

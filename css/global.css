@@ -68,6 +68,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+img { max-width: 100%; height: auto; display: block; }
+canvas, svg, video { max-width: 100%; height: auto; }
+
+
 /* Ambient Background Glows */
 .bg-glow {
   position: absolute;
@@ -233,9 +237,35 @@ footer { background: #09090b; border-top: none; padding: 80px 48px 40px; }
 }
 
 /* Table Responsiveness */
-.table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 20px; border: 1px solid var(--surface-border); margin-bottom: 32px; }
-.std-table { min-width: 600px; } 
-
+.table-wrap { 
+  width: 100%; 
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; 
+  border-radius: 20px; 
+  border: 1px solid var(--surface-border); 
+  margin-bottom: 32px; 
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+.std-table { 
+  width: 100%;
+  min-width: 700px; /* Force scroll on mobile */
+  border-collapse: collapse;
+} 
+.std-table th, .std-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--surface-border);
+}
+.std-table th {
+  background: var(--surface-light);
+  font-weight: 800;
+  color: var(--text-main);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.std-table tr:last-child td { border-bottom: none; }
 /* Fix for horizontal scroll on mobile */
 html, body {
   max-width: 100vw;
