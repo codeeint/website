@@ -41,6 +41,7 @@
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
 <style>
 /* â•â• HERO SECTION â•â• */
+/* ── HERO SECTION ── */
 #hero { padding: calc(var(--nav-h) + 60px) 48px 40px; background: var(--bg-main); position: relative; overflow: hidden; }
 .hero-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .hero-left { position: relative; z-index: 2; padding-right: 20px; }
@@ -48,22 +49,11 @@
 .hero-h1 { font-family: var(--font-body); font-size: clamp(44px, 5.5vw, 68px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; color: var(--text-main); margin-bottom: 24px; }
 .premium-text-grad { background: linear-gradient(90deg, var(--accent-red), var(--accent), var(--accent-yellow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
 .hero-sub { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; max-width: 480px; }
-
-/* â•â• HERO IMAGE BLOBS â•â• */
 .hero-right { position: relative; z-index: 1; display: flex; justify-content: center; }
-.blob-container { width: 100%; max-width: 500px; aspect-ratio: 1; background: var(--surface-light); border: 1px solid var(--surface-border); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; position: relative; display: flex; justify-content: center; align-items: center; animation: morph 8s ease-in-out infinite alternate; }
-@keyframes morph { 0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; } 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } }
-.blob-image { width: 85%; height: 85%; object-fit: cover; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 80px; animation: morph 8s ease-in-out infinite alternate-reverse; box-shadow: var(--shadow-md); }
-.starburst { position: absolute; top: 10%; left: -10%; width: 60px; height: 60px; }
+.hero-image-wrap { width: 100%; max-width: 600px; aspect-ratio: 16/10; background: var(--surface-light); border: 1px solid var(--surface-border); border-radius: 24px; position: relative; display: flex; justify-content: center; align-items: center; overflow: hidden; box-shadow: var(--shadow-md); }
+.hero-main-img { width: 100%; height: 100%; object-fit: cover; }
 
-/* â•â• FLOATING BADGES â•â• */
-.float-card { position: absolute; background: var(--bg-card); padding: 16px 20px; border-radius: 20px; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; animation: float 4s ease-in-out infinite; z-index: 3; }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-.fc-1 { bottom: 10%; left: -15%; animation-delay: 0s; }
-.fc-2 { bottom: 20%; right: -10%; background: var(--bg-card); border: 1px solid var(--surface-border); animation-delay: 1s; padding: 12px 18px; border-radius: 50px; }
-.fc-3 { top: 10%; right: -5%; background: var(--text-main); color: #fff; flex-direction: column; justify-content: center; width: 90px; height: 90px; border-radius: 50%; gap: 4px; animation-delay: 2s; text-align: center; }
-
-/* â•â• STATS SECTION â•â• */
+/* ── STATS SECTION ── */
 #stats { padding: 40px 48px; background: var(--bg-main); border-bottom: 1px solid rgba(0,0,0,0.03); border-top: 1px solid rgba(0,0,0,0.03); }
 .stats-inner { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
 .stat-item { text-align: center; flex: 1; min-width: 150px; }
@@ -217,31 +207,10 @@
       </div>
     </div>
     
-    <div class="hero-right reveal-right delay-1" style="position: relative;">
-      <div class="blob-container" style="background: var(--bg-main); border: 2px solid var(--surface-border); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
-        <img src="assets/img/home_hero_indian.png" alt="Students working in an Indian Robotics and AI lab equipped by Codeeint" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
-        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 30%, var(--bg-main) 100%); opacity: 0.4;"></div>
-      </div>
-
-      <div class="float-card fc-1" style="z-index: 10;">
-        <div style="width:36px;height:36px;background:var(--surface-light);border:1px solid var(--surface-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text-main);">HW</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text-main);margin-bottom:2px">Lab Hardware</div>
-          <div style="font-size:10px;color:var(--text-muted)">Robotics & Compute</div>
-        </div>
-      </div>
-      
-      <div class="float-card fc-2" style="z-index: 10;">
-        <div style="width:24px;height:24px;background:var(--text-main);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">+</div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--text-main);line-height:1">Certified</div>
-          <div style="font-size:10px;color:var(--text-muted)">Live Trainers</div>
-        </div>
-      </div>
-
-      <div class="float-card fc-3" style="background: var(--accent); border: none; z-index: 10;">
-        <div style="width:16px;height:16px;background:#fff;transform:rotate(45deg);margin:0 auto"></div>
-        <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#fff;margin-top:8px;">AI / ML</div>
+    <div class="hero-right reveal-right delay-1">
+      <div class="hero-image-wrap">
+        <img src="assets/img/home_hero_indian.png" class="hero-main-img" alt="Students working in an Indian Robotics and AI lab equipped by Codeeint">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);"></div>
       </div>
     </div>
   </div>
