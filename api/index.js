@@ -6,7 +6,6 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static('./')); // Serves index.html and other files automatically
 
 // Titan Email SMTP Configuration
 const transporter = nodemailer.createTransport({
