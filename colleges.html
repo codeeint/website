@@ -167,12 +167,10 @@
 </head>
 <body>
 <div id="cursor"></div><div id="cursor-ring"></div>
-
-<!-- NAVBAR -->
+<header>
 <nav id="navbar">
   <a href="/" class="nav-logo">
-    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint">
-    
+    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint Technologies Logo">
   </a>
 
   <div class="nav-center">
@@ -206,14 +204,18 @@
     <a href="about" class="nav-link">About</a>
     <a href="contact" class="nav-link">Contact</a>
   </div>
+
   <div class="nav-right">
     <a href="contact" class="btn-nav-primary">Request Demo →</a>
   </div>
-  <button class="nav-hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle Navigation"><span></span><span></span><span></span></button>
 </nav>
 
-<div id="mobile-nav"><div class="mobile-nav-section"><a href="/" class="mobile-nav-link">Home</a><a href="schools" class="mobile-nav-link">Schools</a><a href="colleges" class="mobile-nav-link">Colleges</a><a href="research" class="mobile-nav-link">Startups & Research</a><a href="about" class="mobile-nav-link">About</a><a href="contact" class="mobile-nav-link">Contact</a></div><a href="contact" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Demo →</a></div>
+<div id="mobile-nav"><div class="mobile-nav-section"><a href="/" class="mobile-nav-link">Home</a><a href="schools" class="mobile-nav-link">Schools</a><a href="colleges" class="mobile-nav-link">Colleges</a><a href="research" class="mobile-nav-link">Startups & Research</a><a href="about" class="mobile-nav-link">About</a><a href="contact" class="mobile-nav-link">Contact</a></div>
+<a href="contact" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Demo →</a></div>
+</header>
 
+<main>
 <!-- 01 HERO -->
 <section class="ch-hero reveal">
   <div class="ch-inner">
@@ -653,7 +655,7 @@
         </div>
         <h2 class="faq-title">Questions<br>colleges ask<br>every time.</h2>
         <p class="faq-desc">If you don't see your question here, use the contact form below. We respond within 48 hours — usually within a few hours on weekdays.</p>
-        <a href="#college-contact" class="faq-btn-wrap">
+        <a href="contact" class="faq-btn-wrap">
           <span class="faq-btn-text">Ask a Custom Question →</span>
         </a>
       </div>
@@ -741,261 +743,8 @@
   </div>
 </section>
 
-<!-- 11 GET IN TOUCH -->
-<section class="section-std" id="college-contact" style="background:var(--surface-light);">
-  <div class="sh-inner">
-    <div class="contact-grid">
-      <!-- INFO COL -->
-      <div class="reveal-left">
-        <div class="std-eyebrow">11 — Get in Touch</div>
-        <h2 class="std-h2" style="font-size:52px; margin-bottom:32px; letter-spacing:-2px;">Let's build your<br>NVIDIA lab<br>together.</h2>
-        <p class="std-p" style="margin-bottom:48px;">Tell us your institution details and what you're looking for. Codeeint will prepare a complete proposal within 48 hours.</p>
 
-        <div class="contact-info-card">
-          <div class="contact-method">
-            <div class="cm-icon"><i class="ph-duotone ph-envelope"></i></div>
-            <div>
-              <div class="cm-label">Email</div>
-              <div class="cm-val">team@codeeint.com</div>
-            </div>
-          </div>
-          <div class="contact-method">
-            <div class="cm-icon"><i class="ph-duotone ph-globe"></i></div>
-            <div>
-              <div class="cm-label">Website</div>
-              <div class="cm-val">www.codeeint.com</div>
-            </div>
-          </div>
-          <div class="contact-method">
-            <div class="cm-icon"><i class="ph-duotone ph-map-pin"></i></div>
-            <div>
-              <div class="cm-label">Coverage</div>
-              <div class="cm-val">Pan-India · All states</div>
-            </div>
-          </div>
-          <div style="margin-top:40px; padding-top:40px; border-top:1px solid var(--surface-border); font-size:14px; color:var(--text-muted); line-height:1.6;">
-            <i class="ph-duotone ph-timer" style="color:var(--accent); font-size:20px; margin-bottom:8px;"></i><br>
-            <strong>We respond within 48 hours</strong><br>
-            On weekdays we typically respond within a few hours. Every enquiry gets a personalised response — not a template.
-          </div>
-        </div>
-      </div>
-
-      <!-- FORM COL -->
-      <div class="reveal-right">
-<!-- 09.5 ENGAGEMENT PACKAGES -->
-<section class="section-std" style="background:var(--surface-light);">
-  <div class="std-header reveal">
-    <div class="std-eyebrow">09.5 — Packages</div>
-    <h2 class="std-h2">One program for every college size.</h2>
-  </div>
-
-  <div class="packages-grid">
-    <!-- Starter -->
-    <div class="pack-card reveal">
-      <h3 class="pack-title">Starter</h3>
-      <div class="pack-sub">Department AI Lab<br>1 batch · 20–30 students</div>
-      <ul class="pack-list">
-        <li>10–15 NVIDIA Jetson Orin Nano kits</li>
-        <li>1 AI Robotics kit (JetBot)</li>
-        <li>Full project-based curriculum</li>
-        <li>Faculty training & handover</li>
-        <li>12-month support SLA</li>
-        <li>NAAC documentation package</li>
-      </ul>
-      <a href="contact" class="btn btn-outline">Request Starter Quote</a>
-    </div>
-    <!-- Growth -->
-    <div class="pack-card featured reveal">
-      <h3 class="pack-title">Growth</h3>
-      <div class="pack-sub">Multi-Department AI Program<br>2–3 batches · 60–100 students</div>
-      <ul class="pack-list">
-        <li>25–40 NVIDIA Jetson kits (Nano + NX)</li>
-        <li>3 AI Robotics kits suite</li>
-        <li>1 RTX GPU Workstation for research</li>
-        <li>FDP for 5 faculty members</li>
-        <li>4+ International certs per student</li>
-        <li>Full NAAC/NBA documentation</li>
-      </ul>
-      <a href="contact" class="btn btn-primary">Request Growth Quote</a>
-    </div>
-    <!-- Enterprise -->
-    <div class="pack-card reveal">
-      <h3 class="pack-title">Enterprise</h3>
-      <div class="pack-sub">AI Centre of Excellence<br>Full Institute · 200+ students</div>
-      <ul class="pack-list">
-        <li>60+ Jetson kits (Nano + NX + AGX)</li>
-        <li>All 5 AI Robotics kits (including Dog)</li>
-        <li>8× H100 DGX-Class GPU Cluster</li>
-        <li>Full FDP for all faculty</li>
-        <li>8+ International certs per student</li>
-        <li>NVIDIA AI CoE branding kit</li>
-      </ul>
-      <a href="contact" class="btn btn-outline">Request Enterprise Quote</a>
-    </div>
-  </div>
-</section>
-
-<!-- 10 FAQ SECTION -->
-<section class="section-std" id="college-faq" style="background:var(--bg-main);">
-  <div class="sh-inner">
-    <div class="faq-grid reveal">
-      <!-- LEFT COL -->
-      <div>
-        <div class="faq-badge-wrap">
-          <div class="faq-line"></div>
-          <div class="faq-badge-text">Questions & Answers</div>
-        </div>
-        <h2 class="faq-title">Questions<br>colleges ask<br>every time.</h2>
-        <p class="faq-desc">If you don't see your question here, use the contact form below. We respond within 48 hours — usually within a few hours on weekdays.</p>
-        <a href="#college-contact" class="faq-btn-wrap">
-          <span class="faq-btn-text">Ask a Custom Question →</span>
-        </a>
-      </div>
-
-      <!-- RIGHT COL -->
-      <div class="faq-list">
-        <!-- Q1 -->
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-trigger">
-            <h3 class="faq-question">Do we need to buy any hardware ourselves, or does Codeeint supply everything?</h3>
-            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
-          </div>
-          <div class="faq-content">
-            <p class="faq-answer">Codeeint supplies all hardware — NVIDIA Jetson kits, robotics kits, cables, SD cards, pre-installed JetPack and everything required for the lab. The institution provides the physical space, tables, projector and a timetable slot. You do not need to purchase or configure anything separately.</p>
-          </div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-trigger">
-            <h3 class="faq-question">Do our faculty need to know NVIDIA / AI to run this lab?</h3>
-            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
-          </div>
-          <div class="faq-content">
-            <p class="faq-answer">No prior knowledge required. Codeeint's expert trainer works alongside your faculty from Day One — training them hands-on through real sessions with students. By Month 3, your staff are certified to run sessions independently. Codeeint provides all session content, lab manuals, assessment documents and support materials so your faculty never have to create anything from scratch. The FDP (Faculty Development Programme) formalises this into an NVIDIA DLI Instructor certification pathway for interested staff.</p>
-          </div>
-        </div>
-
-        <!-- Q3 -->
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-trigger">
-            <h3 class="faq-question">How does the NVIDIA DLI certification process work for students?</h3>
-            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
-          </div>
-          <div class="faq-content">
-            <p class="faq-answer">NVIDIA Deep Learning Institute (DLI) certifications are earned through NVIDIA's own online assessment platform. Codeeint prepares students through hands-on project work throughout the program. When students are ready, Codeeint facilitates their access to the DLI assessment portal and guides them through the certification process. Students receive NVIDIA-issued digital certificates directly from NVIDIA.</p>
-          </div>
-        </div>
-
-        <!-- Q4 -->
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-trigger">
-            <h3 class="faq-question">We already have an Atal Tinkering Lab or basic AI lab. Can Codeeint work alongside it?</h3>
-            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
-          </div>
-          <div class="faq-content">
-            <p class="faq-answer">Yes — Codeeint integrates, not replaces. Many institutions run existing Arduino or basic AI setups alongside Codeeint's NVIDIA lab. We map the curriculum to begin where your existing program ends, ensuring no duplication. Codeeint specifically fills the gap between "basic tinkering" and "industry-ready NVIDIA AI engineering."</p>
-          </div>
-        </div>
-
-        <!-- Q5 -->
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-trigger">
-            <h3 class="faq-question">How does the 12-month support SLA work in practice?</h3>
-            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
-          </div>
-          <div class="faq-content">
-            <p class="faq-answer">The SLA covers: dedicated technical helpdesk (hardware or software issues), trainer revisit for any session or topic that needs remediation, curriculum update access as NVIDIA releases new frameworks, half-year and end-year progress reviews with lab coordinator, and hardware replacement coordination. This is active support — not a warranty card.</p>
-          </div>
-        </div>
-
-        <!-- Q6 -->
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-trigger">
-            <h3 class="faq-question">Can Codeeint labs be documented for NAAC / NBA accreditation?</h3>
-            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
-          </div>
-          <div class="faq-content">
-            <p class="faq-answer">Yes. Every Codeeint installation includes a NAAC/NBA-ready documentation package — lab specifications, equipment list, curriculum overview, session logs, student outcome records and certification data. Codeeint also provides an official lab description document for the institution's accreditation submission. Many institutions have used Codeeint's AI lab as a key criterion 5 or 6 differentiator.</p>
-          </div>
-        </div>
-
-        <!-- Q7 -->
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-trigger">
-            <h3 class="faq-question">What is the minimum batch size / room requirement?</h3>
-            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
-          </div>
-          <div class="faq-content">
-            <p class="faq-answer">Minimum batch size is 15 students. Codeeint works with batches of 15–60 students per lab room. For larger cohorts, we set up multiple batches with separate session slots. Room requirement is a standard classroom or lab space — no special renovation or dedicated infrastructure needed. One projector or smartboard, standard power sockets and a stable internet connection are all you need to provide.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 11 GET IN TOUCH -->
-<section class="section-std" id="college-contact" style="background:var(--surface-light);">
-  <div class="sh-inner">
-    <div class="contact-grid">
-      <!-- INFO COL -->
-      <div class="reveal-left">
-        <div class="std-eyebrow">11 — Get in Touch</div>
-        <h2 class="std-h2" style="font-size:52px; margin-bottom:32px; letter-spacing:-2px;">Let's build your<br>NVIDIA lab<br>together.</h2>
-        <p class="std-p" style="margin-bottom:48px;">Tell us your institution details and what you're looking for. Codeeint will prepare a complete proposal within 48 hours.</p>
-
-        <div class="contact-info-card">
-          <div class="contact-method">
-            <div class="cm-icon"><i class="ph-duotone ph-envelope"></i></div>
-            <div>
-              <div class="cm-label">Email</div>
-              <div class="cm-val">team@codeeint.com</div>
-            </div>
-          </div>
-          <div class="contact-method">
-            <div class="cm-icon"><i class="ph-duotone ph-globe"></i></div>
-            <div>
-              <div class="cm-label">Website</div>
-              <div class="cm-val">www.codeeint.com</div>
-            </div>
-          </div>
-          <div class="contact-method">
-            <div class="cm-icon"><i class="ph-duotone ph-map-pin"></i></div>
-            <div>
-              <div class="cm-label">Coverage</div>
-              <div class="cm-val">Pan-India · All states</div>
-            </div>
-          </div>
-          <div style="margin-top:40px; padding-top:40px; border-top:1px solid var(--surface-border); font-size:14px; color:var(--text-muted); line-height:1.6;">
-            <i class="ph-duotone ph-timer" style="color:var(--accent); font-size:20px; margin-bottom:8px;"></i><br>
-            <strong>We respond within 48 hours</strong><br>
-            On weekdays we typically respond within a few hours. Every enquiry gets a personalised response — not a template.
-          </div>
-        </div>
-      </div>
-
-      <!-- FORM COL -->
-      <div class="reveal-right">
-        <div class="enquiry-form">
-          <div style="text-align:center; padding: 60px 40px; background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 32px; box-shadow: var(--shadow-sm);">
-            <div style="font-size: 64px; color: var(--accent); margin-bottom: 24px;"><i class="ph-duotone ph-wrench"></i></div>
-            <h3 style="font-family:'Syne',sans-serif; font-size:28px; font-weight:800; margin-bottom:16px; color:var(--text-main);">Form Under Maintenance</h3>
-            <p style="font-size:18px; color:var(--text-muted); margin-bottom:32px; line-height:1.6; max-width: 500px; margin-left:auto; margin-right:auto;">
-              Our automated enquiry system is currently being upgraded for a better experience. <br><br>
-              Please send your institutional requirements directly to our team:
-            </p>
-            <a href="mailto:team@codeeint.com" style="font-size: 24px; font-weight: 700; color: var(--accent); text-decoration: none; display: inline-block; padding: 12px 32px; border: 2px solid var(--accent); border-radius: 50px; transition: 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)';">
-              team@codeeint.com
-            </a>
-            <p style="font-size:14px; color:var(--text-muted); margin-top:40px;">We respond to all institutional enquiries within 24 hours.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
 <!-- FOOTER -->
 <footer>

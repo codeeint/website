@@ -150,9 +150,10 @@
 <div class="bg-glow bg-glow-2"></div>
 <div class="bg-glow bg-glow-3"></div>
 
+<header>
 <nav id="navbar">
   <a href="/" class="nav-logo">
-    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint">
+    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint Technologies Logo">
   </a>
   <div class="nav-center">
     <a href="/" class="nav-link active">Home</a>
@@ -188,12 +189,14 @@
   <div class="nav-right">
     <a href="contact" class="btn-nav-primary">Request Demo →</a>
   </div>
-  <button class="nav-hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle Navigation"><span></span><span></span><span></span></button>
 </nav>
 
 <div id="mobile-nav"><div class="mobile-nav-section"><a href="/" class="mobile-nav-link">Home</a><a href="schools" class="mobile-nav-link">Schools</a><a href="colleges" class="mobile-nav-link">Colleges</a><a href="research" class="mobile-nav-link">Startups & Research</a><a href="about" class="mobile-nav-link">About</a><a href="contact" class="mobile-nav-link">Contact</a></div>
 <a href="contact" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Demo →</a></div>
+</header>
 
+<main>
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-left reveal-left">
@@ -211,7 +214,7 @@
     
     <div class="hero-right reveal-right delay-1" style="position: relative;">
       <div class="blob-container" style="background: var(--bg-main); border: 2px solid var(--surface-border); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
-        <img src="assets/img/home_hero_indian.png" alt="Indian Robotics & AI Lab" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+        <img src="assets/img/home_hero_indian.png" alt="Students working in an Indian Robotics and AI lab equipped by Codeeint" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
         <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 30%, var(--bg-main) 100%); opacity: 0.4;"></div>
       </div>
 
@@ -349,7 +352,7 @@
         <div class="eyebrow" style="color:var(--accent)">Why NVIDIA</div>
         <h2 class="h2" style="color:#fff">The world runs<br>on NVIDIA.<br>So should your lab.</h2>
         <p class="body-lg" style="color:rgba(255,255,255,0.7);margin-bottom:24px">90% of AI data centres. Every frontier LLM. NVIDIA is the present infrastructure. Codeeint brings that infrastructure to education.</p>
-        <a href="colleges.html#nvidia" class="btn btn-primary" style="background:#fff;color:var(--text-main);box-shadow:none">See Programs</a>
+        <a href="colleges#nvidia" class="btn btn-primary" style="background:#fff;color:var(--text-main);box-shadow:none">See Programs</a>
       </div>
       <div class="nv-proof-grid" style="position:relative;z-index:2">
         <div class="nv-proof-cell">
@@ -389,7 +392,7 @@
         <h3 class="pc-title">Turnkey Lab Setup</h3>
         <p class="pc-desc">Complete lab infrastructure. Hardware, printed manuals, trainers, and 12-month support.</p>
       </a>
-      <a href="colleges.html#nvidia" class="p-card reveal delay-1">
+      <a href="colleges#nvidia" class="p-card reveal delay-1">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
           <i class="ph-duotone ph-cpu" style="font-size: 32px; color: var(--accent);"></i>
           <span class="pc-badge" style="margin-bottom:0;">02 / 07</span>
@@ -397,7 +400,7 @@
         <h3 class="pc-title">Edge AI Labs</h3>
         <p class="pc-desc">Jetson Orin Nano, NX or AGX configured and running on Day 1. JetPack pre-loaded.</p>
       </a>
-      <a href="colleges.html#robots" class="p-card reveal delay-2">
+      <a href="colleges#robots" class="p-card reveal delay-2">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
           <i class="ph-duotone ph-robot" style="font-size: 32px; color: var(--accent);"></i>
           <span class="pc-badge" style="margin-bottom:0;">03 / 07</span>
@@ -405,7 +408,7 @@
         <h3 class="pc-title">AI Robotics</h3>
         <p class="pc-desc">JetBot, DOFBot Arm, AI Robot Dog. NVIDIA Jetson-powered platforms for hands-on learning.</p>
       </a>
-      <a href="colleges.html#hpc" class="p-card reveal">
+      <a href="colleges#hpc" class="p-card reveal">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
           <i class="ph-duotone ph-hard-drives" style="font-size: 32px; color: var(--accent);"></i>
           <span class="pc-badge" style="margin-bottom:0;">04 / 07</span>
@@ -413,7 +416,7 @@
         <h3 class="pc-title">GPU / HPC</h3>
         <p class="pc-desc">RTX 4090 workstations to 8&times;H100 SXM5 clusters. Enable large model training on campus.</p>
       </a>
-      <a href="colleges.html#workshops" class="p-card reveal delay-1">
+      <a href="colleges#workshops" class="p-card reveal delay-1">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
           <i class="ph-duotone ph-chalkboard-teacher" style="font-size: 32px; color: var(--accent);"></i>
           <span class="pc-badge" style="margin-bottom:0;">05 / 07</span>
@@ -421,7 +424,7 @@
         <h3 class="pc-title">Workshops & FDP</h3>
         <p class="pc-desc">1–4 day hands-on workshops. Accredited FDP with DLI instructor pathways.</p>
       </a>
-      <a href="colleges.html#certs" class="p-card reveal delay-2">
+      <a href="colleges#certs" class="p-card reveal delay-2">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
           <i class="ph-duotone ph-certificate" style="font-size: 32px; color: var(--accent);"></i>
           <span class="pc-badge" style="margin-bottom:0;">06 / 07</span>
@@ -441,17 +444,17 @@
     </div>
     <div class="capabilities-grid">
       <div class="cap-card reveal-left">
-        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_inference.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Inference"></div>
+        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_inference.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Icon representing AI Inference capabilities"></div>
         <h3 class="cap-title">Real-time Inference</h3>
         <p class="cap-desc">Run vision models and local LLMs on edge devices without relying on cloud latency.</p>
       </div>
       <div class="cap-card reveal">
-        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_hardware.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Hardware"></div>
+        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_hardware.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Icon representing Custom AI Hardware solutions"></div>
         <h3 class="cap-title">Custom Hardware</h3>
         <p class="cap-desc">Carrier boards and chassis specifically built to withstand constant use in academic labs.</p>
       </div>
       <div class="cap-card reveal-right">
-        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_dashboard.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Dashboard"></div>
+        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_dashboard.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Icon representing the Analytics Dashboard console"></div>
         <h3 class="cap-title">Analytics Dashboard</h3>
         <p class="cap-desc">Monitor hardware utilization, student progress, and lab hours directly from the console.</p>
       </div>
@@ -508,6 +511,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>

@@ -82,10 +82,10 @@
 <body>
 <div id="cursor"></div><div id="cursor-ring"></div>
 
-<!-- NAVBAR -->
+<header>
 <nav id="navbar">
   <a href="/" class="nav-logo">
-    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint">
+    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint Technologies Logo">
   </a>
   <div class="nav-center">
     <a href="/" class="nav-link">Home</a>
@@ -121,10 +121,14 @@
   <div class="nav-right">
     <a href="contact" class="btn-nav-primary">Request Support →</a>
   </div>
-  <button class="nav-hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle Navigation"><span></span><span></span><span></span></button>
 </nav>
 
-<div id="mobile-nav"><div class="mobile-nav-section"><a href="/" class="mobile-nav-link">Home</a><a href="schools" class="mobile-nav-link">Schools</a><a href="colleges" class="mobile-nav-link">Colleges</a><a href="research" class="mobile-nav-link">Startups & Research</a><a href="about" class="mobile-nav-link">About</a><a href="contact" class="mobile-nav-link">Contact</a></div><a href="contact" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Support →</a></div>
+<div id="mobile-nav"><div class="mobile-nav-section"><a href="/" class="mobile-nav-link">Home</a><a href="schools" class="mobile-nav-link">Schools</a><a href="colleges" class="mobile-nav-link">Colleges</a><a href="research" class="mobile-nav-link">Startups & Research</a><a href="about" class="mobile-nav-link">About</a><a href="contact" class="mobile-nav-link">Contact</a></div>
+<a href="contact" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Support →</a></div>
+</header>
+
+<main>
 
 <!-- HERO -->
 <section class="rs-hero reveal">
@@ -265,6 +269,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
