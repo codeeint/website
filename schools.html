@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codeeint for Schools — Grade 4 to 12 IoT, Robotics & AI Labs</title>
+<link rel="stylesheet" href="css/global.css">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+  })();
+</script>
+<style>
+/* Schools-specific styles (Light Theme aligned to Home) */
+.sh-hero { padding: calc(var(--nav-h) + 60px) 24px 100px; text-align: center; position: relative; }
+.sh-inner { max-width: 1100px; margin: 0 auto; }
+.sh-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--surface-border); padding: 8px 16px; border-radius: 30px; margin-bottom: 32px; background: var(--bg-card); box-shadow: var(--shadow-sm); }
+.sh-h1 { font-family: var(--font-heading); font-size: clamp(40px, 6vw, 80px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; color: var(--text-main); }
+.sh-h1 span { color: var(--accent); }
+.sh-sub { font-size: 18px; color: var(--text-muted); line-height: 1.7; margin: 0 auto 48px; max-width: 800px; }
+
+/* Metrics / Features Row */
+.feat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto 80px; }
+.feat-box { background: var(--bg-card); border: 1px solid var(--surface-border); padding: 32px 24px; border-radius: 24px; text-align: center; box-shadow: var(--shadow-sm); transition: 0.3s; }
+.feat-box:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.fb-icon { font-size: 32px; color: var(--accent); margin-bottom: 16px; display: block; }
+.fb-title { font-size: 14px; font-weight: 800; color: var(--text-main); line-height: 1.3; }
+
+/* Section Standard */
+.section-std { padding: 120px 48px; }
+.std-header { text-align: center; max-width: 850px; margin: 0 auto 80px; }
+.std-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+.std-h2 { font-family: var(--font-heading); font-size: 44px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--text-main); }
+.std-p { font-size: 17px; color: var(--text-muted); line-height: 1.8; }
+
+/* Tables */
+.table-wrap { max-width: 1200px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 48px; }
+.std-table { width: 100%; border-collapse: collapse; }
+.std-table th { padding: 24px; background: var(--surface-light); font-family: var(--font-heading); font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; text-align: left; border-bottom: 1px solid var(--surface-border); }
+.std-table td { padding: 20px 24px; border-bottom: 1px solid var(--surface-border); font-size: 14px; color: var(--text-main); vertical-align: top; line-height: 1.6; }
+.std-table tr:hover td { background: rgba(249,115,22,0.02); }
+
+/* Tiers Grid */
+.tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+.tier-card { background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 28px; padding: 48px 40px; transition: 0.3s; box-shadow: var(--shadow-sm); position: relative; }
+.tier-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: var(--shadow-md); }
+.tier-label { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; display: block; }
+.tier-title { font-family: var(--font-heading); font-size: 26px; font-weight: 800; color: var(--text-main); margin-bottom: 12px; }
+.tier-hw { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--surface-border); }
+.tier-list { list-style: none; }
+.tier-list li { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; padding-left: 24px; position: relative; line-height: 1.5; }
+.tier-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+
+/* Comparison Section */
+.comp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+.comp-card { background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 28px; padding: 40px; box-shadow: var(--shadow-sm); }
+.comp-card h4 { font-family: var(--font-heading); font-size: 20px; font-weight: 800; margin-bottom: 24px; }
+.comp-list { list-style: none; }
+.comp-list li { font-size: 14px; margin-bottom: 16px; padding-left: 32px; position: relative; line-height: 1.5; }
+.comp-bad li { color: var(--text-muted); opacity: 0.6; }
+.comp-bad li::before { content: '✗'; position: absolute; left: 0; color: var(--accent-red); font-weight: 800; }
+.comp-good { border-color: var(--accent); }
+.comp-good li { color: var(--text-main); }
+.comp-good li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
+
+/* Engagement Timeline */
+.timeline-wrap { max-width: 1000px; margin: 0 auto; position: relative; padding-left: 40px; }
+.timeline-wrap::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--surface-border); }
+.time-item { position: relative; margin-bottom: 48px; }
+.time-dot { position: absolute; left: -48px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 4px solid #fff; box-shadow: 0 0 0 2px var(--accent); }
+.time-label { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px; display: block; }
+.time-title { font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--text-main); margin-bottom: 8px; }
+.time-body { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+/* Documents Section */
+.docs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+.doc-card { background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 24px; padding: 40px; box-shadow: var(--shadow-sm); }
+.doc-label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; display: block; }
+.doc-list { list-style: none; }
+.doc-list li { margin-bottom: 12px; padding-left: 24px; position: relative; font-size: 14px; color: var(--text-muted); }
+.doc-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+
+/* Modal */
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+.modal-overlay.active { display: flex; opacity: 1; }
+.modal-content { background: #fff; border-radius: 28px; padding: 48px; width: 100%; max-width: 600px; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.15); transform: translateY(20px); transition: 0.3s; }
+.modal-overlay.active .modal-content { transform: translateY(0); }
+.modal-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted); }
+
+@media (max-width: 1024px) {
+  .feat-row, .tiers-grid, .comp-split, .docs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .feat-row, .tiers-grid, .comp-split, .docs-grid { grid-template-columns: 1fr; }
+  .sh-h1 { font-size: 40px; }
+  .std-h2 { font-size: 34px; }
+  .section-std { padding: 80px 24px; }
+}
+
+/* FAQ Section Redesign */
+.faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: start; }
+.faq-badge-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.faq-line { width: 40px; height: 2px; background: #84cc16; } /* Lime green line */
+.faq-badge-text { font-size: 12px; font-weight: 800; color: #fff; background: var(--accent); padding: 4px 12px; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; }
+.faq-title { font-family: var(--font-heading); font-size: 64px; font-weight: 900; line-height: 1.0; margin-bottom: 24px; color: var(--text-main); letter-spacing: -3px; }
+.faq-desc { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 40px; max-width: 400px; }
+.faq-btn-wrap { display: inline-flex; align-items: center; background: #ecfccb; padding: 16px 28px; border-radius: 12px; border: 1px solid #d9f99d; transition: 0.3s; cursor: pointer; text-decoration: none; }
+.faq-btn-wrap:hover { background: #d9f99d; transform: translateY(-2px); }
+.faq-btn-text { color: #166534; font-weight: 800; font-size: 15px; }
+
+.faq-list { border-top: 1px solid var(--surface-border); }
+.faq-item { border-bottom: 1px solid var(--surface-border); transition: 0.3s; cursor: pointer; }
+.faq-trigger { padding: 28px 0; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+.faq-question { font-family: var(--font-heading); font-size: 19px; font-weight: 800; color: var(--text-main); line-height: 1.4; margin: 0; }
+.faq-icon-box { width: 32px; height: 32px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: 0.3s; flex-shrink: 0; }
+.faq-icon-box i { font-size: 14px; transition: 0.3s; }
+.faq-item.active .faq-icon-box { background: var(--text-main); }
+.faq-item.active .faq-icon-box i { transform: rotate(45deg); }
+.faq-content { max-height: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; }
+.faq-item.active .faq-content { max-height: 600px; padding-bottom: 32px; opacity: 1; }
+.faq-answer { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin: 0; }
+
+@media (max-width: 1024px) {
+  .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+  .faq-title { font-size: 48px; letter-spacing: -2px; }
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint">
+  </a>
+  <div class="nav-center">
+    <a href="index.html" class="nav-link">Home</a>
+    <div class="nav-item">
+      <button class="nav-link active">Solutions <span class="chevron">▾</span></button>
+      <div class="mega-drop">
+        <a href="schools.html" class="mega-drop-item">
+          <div class="mega-drop-icon"><i class="ph-duotone ph-backpack" style="font-size:24px;color:var(--accent);"></i></div>
+          <div class="mega-drop-text">
+            <div class="mega-drop-title">Schools — Grade 4 to 12</div>
+            <div class="mega-drop-desc">IoT, Robotics & AI lab programs</div>
+          </div>
+        </a>
+        <a href="colleges.html" class="mega-drop-item">
+          <div class="mega-drop-icon"><i class="ph-duotone ph-student" style="font-size:24px;color:var(--accent);"></i></div>
+          <div class="mega-drop-text">
+            <div class="mega-drop-title">Colleges & Universities</div>
+            <div class="mega-drop-desc">Industrial AI & GPU Compute</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="contact.html" class="btn-nav-primary">Request Demo →</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div id="mobile-nav"><div class="mobile-nav-section"><a href="index.html" class="mobile-nav-link">Home</a><a href="schools.html" class="mobile-nav-link">Schools</a><a href="colleges.html" class="mobile-nav-link">Colleges</a><a href="about.html" class="mobile-nav-link">About</a><a href="contact.html" class="mobile-nav-link">Contact</a></div><a href="contact.html" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Demo →</a></div>
+
+<!-- 01 HERO -->
+<section class="sh-hero reveal">
+  <div class="sh-inner">
+    <div class="sh-badge">Grade 4 to 12 · IoT, Robotics & AI Lab Programs</div>
+    <h1 class="sh-h1">Codeeint brings structured<br><span>AI and Robotics</span> labs<br>to your school.</h1>
+    <p class="sh-sub">From Grade 4 to Grade 12 — curriculum-mapped, trainer-supported, BBC Micro:bit powered. Every session. Every week.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:80px;">
+      <button onclick="openCurriculumModal('Proposal')" class="btn btn-primary">Request School Proposal →</button>
+      <button onclick="openCurriculumModal('Curriculum')" class="btn btn-outline">Download Curriculum ↓</button>
+    </div>
+
+    <div class="feat-row reveal delay-1">
+      <div class="feat-box"><i class="ph-duotone ph-cpu fb-icon"></i><div class="fb-title">BBC Micro:bit<br>Powered Labs</div></div>
+      <div class="feat-box"><i class="ph-duotone ph-book-open fb-icon"></i><div class="fb-title">9-Grade<br>Curriculum</div></div>
+      <div class="feat-box"><i class="ph-duotone ph-users-three fb-icon"></i><div class="fb-title">Expert Trainer<br>Every Week</div></div>
+      <div class="feat-box"><i class="ph-duotone ph-certificate fb-icon"></i><div class="fb-title">Staff & Student<br>Certification</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 WHAT CODEEINT DOES -->
+<section class="section-std" style="background:var(--surface-light);">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">02 — End-to-End Program</div>
+      <h2 class="std-h2">A complete AI lab program,<br>not just a box of equipment.</h2>
+      <p class="std-p">Codeeint designs the program, delivers the curriculum, trains your staff, provides all materials, and remains available for ongoing support. The school does not need to create any content.</p>
+    </div>
+
+    <div class="docs-grid reveal">
+      <div class="doc-card">
+        <span class="doc-label">Infrastructure</span>
+        <ul class="doc-list">
+          <li>Complete IoT and Robotics hardware</li>
+          <li>BBC Micro:bit kits & sensors</li>
+          <li>Full installation & configuration</li>
+          <li>12-month hardware support SLA</li>
+        </ul>
+      </div>
+      <div class="doc-card">
+        <span class="doc-label">Delivery</span>
+        <ul class="doc-list">
+          <li>Expert trainer works alongside staff</li>
+          <li>Hands-on staff certification</li>
+          <li>Weekly session delivery support</li>
+          <li>Teacher guides & session plans</li>
+        </ul>
+      </div>
+      <div class="doc-card">
+        <span class="doc-label">Documentation</span>
+        <ul class="doc-list">
+          <li>Printed manual for every student</li>
+          <li>Assessment & evaluation forms</li>
+          <li>Student completion certificates</li>
+          <li>NAAC/Board accreditation docs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 HARDWARE -->
+<section class="section-std">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">03 — Hardware Ecosystem</div>
+      <h2 class="std-h2">BBC Micro:bit — The World's Most<br>Trusted Educational Hardware.</h2>
+      <p class="std-p">Used by over 60 million students in 60+ countries. Safe, robust, and capable of introducing everything from basic coding to AI and machine learning.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table class="std-table">
+        <thead>
+          <tr>
+            <th>Grade Tier</th>
+            <th>Hardware Ecosystem</th>
+            <th>Coding Level</th>
+            <th>Focus Area</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Foundation (Gr 4-6)</strong></td>
+            <td>BBC Micro:bit V2 + Sensors + Bluetooth</td>
+            <td>MakeCode Blocks to Python</td>
+            <td>IoT basics, automation, sensors</td>
+          </tr>
+          <tr>
+            <td><strong>Advanced (Gr 7-9)</strong></td>
+            <td>Micro:bit V2 + AI Vision Camera + Gyro</td>
+            <td>Python + JavaScript + IoT Cloud</td>
+            <td>AI vision, autonomous cars, cloud</td>
+          </tr>
+          <tr>
+            <td><strong>Expert (Gr 10-12)</strong></td>
+            <td>16-in-1 Super Kit + WiFi Cam + YOLO AI</td>
+            <td>Advanced Python + OpenCV + ML</td>
+            <td>Computer vision, model training, SLAM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 03.5 HARDWARE VISUALS -->
+<section class="section-std" style="padding-top:0;">
+  <div class="sh-inner">
+    <div class="docs-grid">
+      <div class="reveal" style="text-align:center;">
+        <div style="background:var(--bg-card); border:1px solid var(--surface-border); border-radius:24px; padding:32px; margin-bottom:20px; box-shadow:var(--shadow-sm);">
+          <img src="assets/img/kits/3.png" alt="Foundation Kit Hardware" style="width:100%; height:auto; transition:0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <div style="font-size:12px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1px;">Foundation Tier</div>
+        <div style="font-size:14px; color:var(--text-muted); margin-top:4px;">Micro:bit V2 Ecosystem</div>
+      </div>
+      <div class="reveal delay-1" style="text-align:center;">
+        <div style="background:var(--bg-card); border:1px solid var(--surface-border); border-radius:24px; padding:32px; margin-bottom:20px; box-shadow:var(--shadow-sm);">
+          <img src="assets/img/kits/4.png" alt="Advanced AI Vision" style="width:100%; height:auto; transition:0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <div style="font-size:12px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1px;">Advanced Tier</div>
+        <div style="font-size:14px; color:var(--text-muted); margin-top:4px;">AI Vision & IoT Hub</div>
+      </div>
+      <div class="reveal delay-2" style="text-align:center;">
+        <div style="background:var(--bg-card); border:1px solid var(--surface-border); border-radius:24px; padding:32px; margin-bottom:20px; box-shadow:var(--shadow-sm);">
+          <img src="assets/img/kits/5.png" alt="EV3 Compatibility" style="width:100%; height:auto; transition:0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <div style="font-size:12px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1px;">Expert Tier</div>
+        <div style="font-size:14px; color:var(--text-muted); margin-top:4px;">EV3 Compatible Components</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 CURRICULUM -->
+<section class="section-std" style="background:var(--surface-light);">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">04 — Learning Pathway</div>
+      <h2 class="std-h2">9-Grade Structured Curriculum.</h2>
+      <p class="std-p">Each grade includes 60 hours of content (30 theory + 30 practical), mapped to CBSE Science/Math and aligned with NEP 2020 competency-based learning.</p>
+    </div>
+
+    <div class="tiers-grid">
+      <div class="tier-card reveal">
+        <span class="tier-label">Grades 4, 5, 6</span>
+        <h3 class="tier-title">Foundation Tier</h3>
+        <p class="tier-hw">Micro:bit V2 · MakeCode Blocks</p>
+        <ul class="tier-list">
+          <li>Basic electronics & sensors</li>
+          <li>Bluetooth communication</li>
+          <li>Smart room & alarm systems</li>
+          <li>10 guided projects per grade</li>
+        </ul>
+      </div>
+      <div class="tier-card reveal delay-1">
+        <span class="tier-label">Grades 7, 8, 9</span>
+        <h3 class="tier-title">Advanced Tier</h3>
+        <p class="tier-hw">AI Camera · Python · IoT Cloud</p>
+        <ul class="tier-list">
+          <li>Object-Oriented Programming</li>
+          <li>Autonomous vehicle logic</li>
+          <li>Cloud data logging & gesture control</li>
+          <li>10 guided projects per grade</li>
+        </ul>
+      </div>
+      <div class="tier-card reveal delay-2">
+        <span class="tier-label">Grades 10, 11, 12</span>
+        <h3 class="tier-title">Expert Tier</h3>
+        <p class="tier-hw">Super Kit · OpenCV · YOLO AI</p>
+        <ul class="tier-list">
+          <li>Computer Vision & Face detection</li>
+          <li>Machine Learning model training</li>
+          <li>Real-time object detection robots</li>
+          <li>10 guided projects per grade</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04.5 PEDAGOGY & TECH PILLARS -->
+<section class="section-std">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">04.5 — Educational Excellence</div>
+      <h2 class="std-h2">A New Standard for<br>Modern AI Education.</h2>
+    </div>
+
+    <!-- PILLAR 1: STEAM -->
+    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
+      <div style="order:1;">
+        <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Holistic Growth</div>
+        <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Master STEAM Knowledge.</h3>
+        <p class="std-p" style="font-size:16px;">Our program transcends simple coding. We cover Physics, Engineering, Mathematics, and Art, helping children cultivate a rigorous scientific spirit and creative problem-solving mindset from an early age.</p>
+        <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:12px;">
+          <span style="background:rgba(249,115,22,0.1); color:var(--accent); padding:6px 12px; border-radius:8px; font-size:12px; font-weight:700;">Hand-Brain Coordination</span>
+          <span style="background:rgba(249,115,22,0.1); color:var(--accent); padding:6px 12px; border-radius:8px; font-size:12px; font-weight:700;">Self-Exploration</span>
+        </div>
+      </div>
+      <div style="order:2; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+        <img src="assets/img/steam_infographic.png" alt="STEAM Knowledge Infographic" style="width:100%; height:auto; border-radius:16px;">
+      </div>
+    </div>
+
+    <!-- PILLAR 2: GRAPHICAL -->
+    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
+      <div style="order:2;">
+        <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Foundation Level</div>
+        <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Online Graphical Programming.</h3>
+        <p class="std-p" style="font-size:16px;">Using world-class MakeCode software, students learn the logic of programming through an intuitive drag-and-drop interface. Accessible across Mobile, Tablet, and Desktop for seamless learning anywhere.</p>
+        <div style="margin-top:24px; display:flex; gap:32px;">
+          <div style="text-align:center;"><i class="ph-duotone ph-device-mobile" style="font-size:24px; color:var(--accent);"></i><div style="font-size:10px; font-weight:700; margin-top:4px;">Mobile</div></div>
+          <div style="text-align:center;"><i class="ph-duotone ph-tablet" style="font-size:24px; color:var(--accent);"></i><div style="font-size:10px; font-weight:700; margin-top:4px;">Tablet</div></div>
+          <div style="text-align:center;"><i class="ph-duotone ph-desktop" style="font-size:24px; color:var(--accent);"></i><div style="font-size:10px; font-weight:700; margin-top:4px;">Computer</div></div>
+        </div>
+      </div>
+      <div style="order:1; background:var(--bg-card); border-radius:32px; padding:24px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+        <img src="assets/img/graphical_coding_v2.png" alt="Student Coding on Tablet" style="width:100%; height:auto; border-radius:16px;">
+      </div>
+    </div>
+
+    <!-- PILLAR 3: PYTHON -->
+    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center; margin-bottom:120px;">
+      <div style="order:1;">
+        <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Advanced Level</div>
+        <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Industrial Python Programming.</h3>
+        <p class="std-p" style="font-size:16px;">Transition from blocks to professional text-based code. Python's universal appeal and portability make it the perfect choice for teenagers (12+) to explore AI, Data Science, and Robotics Control.</p>
+        <ul class="doc-list" style="margin-top:20px;">
+          <li>Real-world AI library integration</li>
+          <li>Edge computing & autonomous logic</li>
+        </ul>
+      </div>
+      <div style="order:2; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+        <img src="assets/img/python_coding.png" alt="Python Code on Laptop" style="width:100%; height:auto; border-radius:16px;">
+      </div>
+    </div>
+
+    <!-- PILLAR 4: HARDWARE -->
+    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center;">
+      <div style="order:2;">
+        <div class="std-eyebrow" style="letter-spacing:1px; margin-bottom:12px;">Hardware Excellence</div>
+        <h3 style="font-family:var(--font-heading); font-size:32px; font-weight:800; margin-bottom:20px; color:var(--text-main);">Exclusive Sensor Modules.</h3>
+        <p class="std-p" style="font-size:16px;">Our modules are built with environmentally friendly ABS material. They are wear-resistant, safe, and non-toxic. Features like quick connection and building-block compatibility make assembly effortless.</p>
+        <div style="margin-top:24px; display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+          <div style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600;"><i class="ph-duotone ph-lightning" style="color:var(--accent);"></i> Quick Connection</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600;"><i class="ph-duotone ph-stack" style="color:var(--accent);"></i> Cascade Design</div>
+        </div>
+      </div>
+      <div style="order:1; background:var(--bg-card); border-radius:32px; padding:40px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+        <img src="assets/img/hardware_sensors.png" alt="Modular Hardware Sensors" style="width:100%; height:auto; border-radius:16px;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 05 HOW IT WORKS -->
+<section class="section-std">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">05 — The Engagement</div>
+      <h2 class="std-h2">How the School Program works.</h2>
+    </div>
+
+    <div class="timeline-wrap reveal">
+      <div class="time-item">
+        <div class="time-dot"></div>
+        <span class="time-label">Week 1</span>
+        <h3 class="time-title">Lab Installation</h3>
+        <p class="time-body">Hardware setup and lab configuration. All printed manuals and documentation handed over to the school.</p>
+      </div>
+      <div class="time-item">
+        <div class="time-dot"></div>
+        <span class="time-label">Months 1–2</span>
+        <h3 class="time-title">Staff Training</h3>
+        <p class="time-body">Codeeint expert trains your staff hands-on through live student sessions. No dry theory — real teaching experience.</p>
+      </div>
+      <div class="time-item">
+        <div class="time-dot"></div>
+        <span class="time-label">Month 3</span>
+        <h3 class="time-title">Staff Takeover</h3>
+        <p class="time-body">Your certified staff run all sessions independently. Codeeint remains on-call for technical and curriculum support.</p>
+      </div>
+      <div class="time-item">
+        <div class="time-dot"></div>
+        <span class="time-label">Months 10–12</span>
+        <h3 class="time-title">Capstone & Certification</h3>
+        <p class="time-body">Students build original projects. Final assessments completed. All students and staff receive their official certifications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ATAL LAB VS CODEEINT -->
+<section class="section-std" style="background:var(--surface-light);">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">06 — Comparison</div>
+      <h2 class="std-h2">Atal Lab gives you a room.<br>Codeeint gives you a program.</h2>
+      <p class="std-p">Codeeint fills the operational gap ATL was never designed to cover. We integrate alongside existing ATLs to provide structured progression.</p>
+    </div>
+
+    <div class="comp-split reveal">
+      <div class="comp-card comp-bad">
+        <h4>Typical ATL Problems</h4>
+        <ul class="comp-list">
+          <li>30% of labs are unused potential</li>
+          <li>No trained instructor on-site</li>
+          <li>No structured weekly timetable</li>
+          <li>Equipment breaks with no support</li>
+          <li>No grade-wise curriculum progression</li>
+        </ul>
+      </div>
+      <div class="comp-card comp-good">
+        <h4>The Codeeint Solution</h4>
+        <ul class="comp-list">
+          <li>Guaranteed lab usage every week</li>
+          <li>Codeeint trains and certifies your staff</li>
+          <li>Fixed timetable with 60hrs / grade</li>
+          <li>12-month active hardware support SLA</li>
+          <li>Structured path from Gr 4 to Gr 12</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 ALL DOCUMENTS PROVIDED -->
+<section class="section-std">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">07 — Deliverables</div>
+      <h2 class="std-h2">All Documents & Content Provided.</h2>
+    </div>
+
+    <div class="docs-grid reveal">
+      <div class="doc-card">
+        <span class="doc-label">For Students</span>
+        <ul class="doc-list">
+          <li>Printed lab manual per student</li>
+          <li>Project guides & circuit diagrams</li>
+          <li>Innovation worksheets</li>
+          <li>Assessment & evaluation forms</li>
+          <li>Completion certificates</li>
+        </ul>
+      </div>
+      <div class="doc-card">
+        <span class="doc-label">For Teachers</span>
+        <ul class="doc-list">
+          <li>Full session delivery plans</li>
+          <li>Teacher theory guides & Q&A</li>
+          <li>Staff certification documents</li>
+          <li>Refresher training materials</li>
+          <li>Answer keys & rubrics</li>
+        </ul>
+      </div>
+      <div class="doc-card">
+        <span class="doc-label">For Administration</span>
+        <ul class="doc-list">
+          <li>Full equipment specifications</li>
+          <li>Lab layout documentation</li>
+          <li>NAAC/Board accreditation docs</li>
+          <li>Student outcome records</li>
+          <li>Annual summary reports</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 WHAT SCHOOL PROVIDES -->
+<section class="section-std" style="background:var(--surface-light); text-align:center;">
+  <div class="sh-inner reveal">
+    <div class="std-eyebrow">08 — Requirements</div>
+    <h2 class="std-h2">What the school provides.</h2>
+    <p class="std-p" style="margin-bottom:48px;">Four simple things — that is all. We handle everything else.</p>
+    
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;">
+      <div style="background:var(--bg-card); padding:32px; border-radius:20px; border:1px solid var(--surface-border);">
+        <i class="ph-duotone ph-house fb-icon"></i>
+        <div class="fb-title">A Room<br>Existing lab space</div>
+      </div>
+      <div style="background:var(--bg-card); padding:32px; border-radius:20px; border:1px solid var(--surface-border);">
+        <i class="ph-duotone ph-table fb-icon"></i>
+        <div class="fb-title">Tables<br>Standard workbenches</div>
+      </div>
+      <div style="background:var(--bg-card); padding:32px; border-radius:20px; border:1px solid var(--surface-border);">
+        <i class="ph-duotone ph-projector-screen fb-icon"></i>
+        <div class="fb-title">Smartboard<br>For theory sessions</div>
+      </div>
+      <div style="background:var(--bg-card); padding:32px; border-radius:20px; border:1px solid var(--surface-border);">
+        <i class="ph-duotone ph-calendar-blank fb-icon"></i>
+        <div class="fb-title">Timetable Slot<br>1 session per week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 OUTCOMES -->
+<section class="section-std">
+  <div class="sh-inner">
+    <div class="std-header reveal">
+      <div class="std-eyebrow">09 — Outcomes</div>
+      <h2 class="std-h2">What your institution gains.</h2>
+    </div>
+
+    <div class="comp-split reveal">
+      <div style="background:var(--bg-card); padding:40px; border-radius:32px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+        <h3 style="font-family:'Syne'; margin-bottom:20px; color:var(--accent);">For Students</h3>
+        <ul class="doc-list">
+          <li>10+ real projects built per grade</li>
+          <li>Progression from electronics to AI model deployment</li>
+          <li>Skills in Python, OpenCV and IoT Cloud</li>
+          <li>Strong foundation for engineering entrance</li>
+          <li>Official Codeeint grade-completion certificates</li>
+        </ul>
+      </div>
+      <div style="background:var(--bg-card); padding:40px; border-radius:32px; border:1px solid var(--surface-border); box-shadow:var(--shadow-sm);">
+        <h3 style="font-family:'Syne'; margin-bottom:20px; color:var(--accent-red);">For the School</h3>
+        <ul class="doc-list">
+          <li>Fully running AI program for all grades (4-12)</li>
+          <li>Certified staff — no external dependency</li>
+          <li>Complete NAAC/Board-ready documentation</li>
+          <li>Admissions differentiator — a real, active AI lab</li>
+          <li>NEP 2020 compliant experiential learning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 FAQ SECTION -->
+<section class="section-std" style="background:var(--bg-main);">
+  <div class="sh-inner">
+    <div class="faq-grid reveal">
+      <!-- LEFT COL -->
+      <div>
+        <div class="faq-badge-wrap">
+          <div class="faq-line"></div>
+          <div class="faq-badge-text">Questions & Answers</div>
+        </div>
+        <h2 class="faq-title">Questions<br>schools ask<br>every time.</h2>
+        <p class="faq-desc">Everything a principal, HoD or purchase committee wants to know — answered clearly and honestly.</p>
+        <a href="contact.html" class="faq-btn-wrap">
+          <span class="faq-btn-text">Ask Us Directly →</span>
+        </a>
+      </div>
+
+      <!-- RIGHT COL -->
+      <div class="faq-list">
+        <!-- Q1 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">Do we need to purchase hardware separately, or does Codeeint supply everything?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Codeeint supplies everything — BBC Micro:bit kits, sensors, components, cables, and all accessories, fully assembled and ready to use. The school does not need to purchase, source or configure any hardware separately. You provide the room, tables, a projector and a timetable slot. Everything else comes from Codeeint.</p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">Our teachers don't know robotics or AI. Can they still run this program?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Yes — that is exactly what Codeeint is built for. Our expert trainer comes to your school and works alongside your teachers from Day One, training them hands-on through real student sessions. By Month 2–3, your staff are certified to run every session independently. Codeeint provides the full session plan, teacher guide and all materials. Your teachers don't need to prepare anything from scratch.</p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">Which grades does the program cover and how is it structured?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">The Codeeint program covers Grade 4 to Grade 12 across three kit tiers. Foundation (Grade 4–6) uses BBC Micro:bit with MakeCode and basic Python. Advanced (Grade 7–9) adds AI Vision Camera and IoT Cloud. Expert (Grade 10–12) introduces computer vision, OpenCV, AI model training and YOLO. Each grade has 60 hours of content per year — 30 theory and 30 practical — mapped to CBSE Science and Maths chapters and aligned with NEP 2020.</p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">What documents and materials does Codeeint provide?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Codeeint provides a printed lab manual for every student, a teacher guide with full session delivery plan, student assessment sheets, project evaluation forms, student completion certificates and all NAAC/board accreditation-ready documentation. Your school does not need to create any content. Everything is handed over on Day One and updated each academic year.</p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">We already have an Atal Tinkering Lab. Do we still need Codeeint?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Many schools run both. ATL is great for open tinkering and government compliance — but it was never designed to produce structured AI engineers. ATL leaves teaching to the school teacher after 8 days of onboarding, with no fixed timetable and no ongoing trainer support. Codeeint picks up from where ATL stops — structured grade-wise AI curriculum, trained staff and all documentation. We integrate with ATL, not replace it.</p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">How many students can participate per batch?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Each batch can have 20 to 40 students, with one kit per student pair. For schools with larger student strength, Codeeint sets up multiple batches with separate timetable slots. The minimum batch size is 15 students. There is no maximum — larger schools can run 3 to 4 batches across different grades simultaneously.</p>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">Is this program aligned with CBSE, ICSE and NEP 2020?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Yes. Codeeint's curriculum is fully aligned with NEP 2020's emphasis on experiential, competency-based learning. Each grade's project topics are cross-linked to Science and Maths chapters from CBSE, ICSE, IB and major State Board syllabi. Schools can use Codeeint's lab activity records directly in their curriculum documentation and NAAC submissions.</p>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">What happens if equipment breaks or a teacher gets stuck?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Codeeint's 12-month active SLA covers hardware issues, curriculum questions and staff support. If a kit malfunctions, Codeeint coordinates replacement. If a teacher is stuck on a topic, a refresher session is scheduled. If any content needs updating, Codeeint provides the update. You contact Codeeint once — we resolve it. The school never has to figure out hardware or content issues alone.</p>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">What certificate do students receive at the end?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Students receive a Codeeint grade-completion certificate at the end of each academic year. The certificate mentions the grade completed, skills learned, projects built and the school name. For Grade 10–12 students, the certificate includes AI and computer vision skills that carry weight in engineering entrance portfolios. Codeeint also provides a student project record document listing all 10+ projects completed.</p>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-trigger">
+            <h3 class="faq-question">What does the school need to provide — and what does Codeeint provide?</h3>
+            <div class="faq-icon-box"><i class="ph ph-plus"></i></div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">The school provides four things: a room (existing classroom works), tables (one per student pair), a projector or smartboard, and a timetable slot (one session per batch per week). Codeeint provides everything else — all hardware, curriculum, teacher training, printed student manuals, assessment forms, certificates, NAAC documentation and 12-month support. Your school runs the program. Codeeint makes sure you can.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo"><img src="assets/img/logo.png" class="footer-logo-img" alt="Codeeint"></div>
+        <p class="footer-brand-p" style="margin-top:16px; opacity:0.6;">Bringing advanced AI education and industrial robotics to schools across India. Grade 4 to 12.</p>
+        <div class="footer-badges" style="margin-top:20px;"><span class="footer-badge">BBC Micro:bit Partner</span><span class="footer-badge">NEP 2020 Aligned</span></div>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="schools.html">For Schools</a></li>
+          <li><a href="colleges.html">For Colleges</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="flex-direction:column; align-items:flex-start; gap:8px;">
+      <p class="footer-copy">&copy; 2025 Codeeint Technologies Pvt Ltd. All rights reserved.</p>
+      <p style="font-size:11px; opacity:0.4; line-height:1.6;">NVIDIA and Micro:bit related marks are trademarks of their respective owners. Codeeint is an independent technology training company.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Curriculum Download Modal -->
+<div id="curr-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeCurriculumModal()"><i class="ph-duotone ph-x"></i></button>
+    
+    <div id="modal-step-1" style="text-align:center; padding: 20px 0;">
+      <div style="font-size: 48px; color: var(--accent); margin-bottom: 20px;"><i class="ph-duotone ph-wrench"></i></div>
+      <h3 style="font-family:'Syne',sans-serif; font-size:24px; font-weight:800; margin-bottom:12px; color:var(--text-main);">Form Under Maintenance</h3>
+      <p style="font-size:16px; color:var(--text-muted); margin-bottom:24px; line-height:1.6;">Our automated curriculum request system is currently being upgraded. <br>Please email your request directly to:</p>
+      <a href="mailto:team@codeeint.com" style="font-size: 20px; font-weight: 700; color: var(--accent); text-decoration: none; display: block; margin-bottom: 32px;">team@codeeint.com</a>
+      <button onclick="closeCurriculumModal()" class="btn btn-outline" style="width:100%; justify-content:center;">Close Window</button>
+    </div>
+    
+    <div id="modal-step-2" style="display:none; text-align:center;">
+      <h3 style="font-family:'Syne',sans-serif; font-size:24px; font-weight:800; margin-bottom:8px; color:var(--text-main);">Verify Details</h3>
+      <p style="font-size:14px; color:var(--text-muted); margin-bottom:24px; line-height:1.5;">We have sent verification codes to your Email and Phone.</p>
+      <div style="display:flex; flex-direction:column; gap:8px; text-align:left;">
+        <div class="form-group"><label>Email OTP*</label><input type="text" id="dl-otp-email" placeholder="6-digit code" style="text-align:center; letter-spacing:4px;"></div>
+        <div class="form-group"><label>Phone OTP*</label><input type="text" id="dl-otp-phone" placeholder="6-digit code" style="text-align:center; letter-spacing:4px;"></div>
+      </div>
+      <button onclick="handleOTPVerify()" class="btn btn-primary" style="width:100%; justify-content:center; margin-bottom:12px; padding:18px;">Verify & Submit</button>
+      <button onclick="resendOTP()" style="background:none; border:none; color:var(--accent); font-size:13px; cursor:pointer; font-weight:600;">Resend Codes</button>
+    </div>
+    
+    <div id="modal-step-3" style="display:none; text-align:center;">
+      <div style="width:64px; height:64px; border-radius:50%; background:rgba(34,197,94,0.1); color:#22c55e; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 20px;"><i class="ph-duotone ph-check-circle"></i></div>
+      <h3 style="font-family:'Syne',sans-serif; font-size:24px; font-weight:800; margin-bottom:12px; color:var(--text-main);">Request Received!</h3>
+      <p style="font-size:15px; color:var(--text-muted); margin-bottom:24px; line-height:1.6;">Our team will email the detailed <span id="display-type-success">curriculum</span> PDF directly to <strong style="color:var(--text-main);"><span id="display-email">your email</span></strong>.</p>
+      <button onclick="closeCurriculumModal()" class="btn btn-outline">Close Window</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  let currentDownloadType = 'Curriculum';
+  let generatedOTP = '';
+
+  function openCurriculumModal(type = 'Curriculum') {
+    currentDownloadType = type;
+    document.getElementById('modal-title').innerText = `Request ${type}`;
+    document.getElementById('modal-desc').innerText = `Please provide your details. For security and to ensure the ${type.toLowerCase()} reaches actual educators, we require verification.`;
+    document.getElementById('display-type-success').innerText = type.toLowerCase();
+    document.getElementById('curr-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCurriculumModal() {
+    document.getElementById('curr-modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  async function handleCurrFormSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById('dl-email').value;
+    const name = document.getElementById('dl-name').value;
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+
+    document.getElementById('display-email').innerText = email;
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="ph ph-spinner-gap" style="animation: spin 1s linear infinite;"></i> Sending OTP...';
+
+    try {
+      // Send OTP via EmailJS
+      await emailjs.send('service_5k8stto', 'YOUR_OTP_TEMPLATE_ID', {
+        user_name: name,
+        user_email: email,
+        otp_code: generatedOTP,
+        request_type: currentDownloadType
+      });
+
+      console.log(`[DEBUG] OTP sent to ${email}: ${generatedOTP}`);
+      
+      // Transition to OTP step
+      document.getElementById('modal-step-1').style.display = 'none';
+      document.getElementById('modal-step-2').style.display = 'block';
+    } catch (error) {
+      console.error("OTP Send Error:", error);
+      const errorMsg = error.text || error.message || "Unknown error";
+      alert(`Error sending verification code: ${errorMsg}\n\nMake sure your Public Key and Template ID are correctly set.`);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+  }
+
+  async function handleOTPVerify() {
+    const emailOtp = document.getElementById('dl-otp-email').value;
+    const phoneOtp = document.getElementById('dl-otp-phone').value;
+    
+    if (emailOtp === generatedOTP && phoneOtp === generatedOTP) {
+      const verifyBtn = document.querySelector('#modal-step-2 .btn-primary');
+      verifyBtn.disabled = true;
+      verifyBtn.innerHTML = '<i class="ph ph-spinner-gap" style="animation: spin 1s linear infinite;"></i> Sending...';
+
+      try {
+        // Submit final enquiry to EmailJS
+        const templateParams = {
+          user_name: document.getElementById('dl-name').value,
+          user_position: document.getElementById('dl-position').value,
+          institution_name: document.getElementById('dl-school').value,
+          user_email: document.getElementById('dl-email').value,
+          user_phone: document.getElementById('dl-phone').value,
+          request_type: currentDownloadType
+        };
+
+        await emailjs.send('service_5k8stto', 'YOUR_TEMPLATE_ID', templateParams);
+
+        document.getElementById('modal-step-2').style.display = 'none';
+        document.getElementById('modal-step-3').style.display = 'block';
+      } catch (error) {
+        console.error("Submission Error:", error);
+        const errorMsg = error.text || error.message || "Unknown error";
+        alert(`Verification successful, but submission failed: ${errorMsg}`);
+        document.getElementById('modal-step-2').style.display = 'none';
+        document.getElementById('modal-step-3').style.display = 'block';
+      }
+    } else {
+      alert("Invalid verification code. Please try again.");
+    }
+  }
+
+  async function resendOTP() {
+    const email = document.getElementById('dl-email').value;
+    const name = document.getElementById('dl-name').value;
+    const resendBtn = document.querySelector('#modal-step-2 button[onclick="resendOTP()"]');
+    
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    resendBtn.innerText = "Sending code...";
+    resendBtn.disabled = true;
+
+    try {
+      await emailjs.send('service_5k8stto', 'YOUR_OTP_TEMPLATE_ID', {
+        user_name: name,
+        user_email: email,
+        otp_code: generatedOTP,
+        request_type: currentDownloadType
+      });
+      alert(`A new verification code has been sent to ${email}`);
+    } catch (error) {
+      console.error("Resend Error:", error);
+      alert("Error resending code. Please try again later.");
+    } finally {
+      resendBtn.innerText = "Resend Codes";
+      resendBtn.disabled = false;
+    }
+  }
+
+  function toggleMobileNav() {
+    const nav = document.getElementById('mobile-nav');
+    nav.classList.toggle('active');
+  }
+</script>
+</body>
+</html>

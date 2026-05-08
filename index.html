@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codeeint Technologies — Industrial AI & Robotics Labs</title>
+<link rel="stylesheet" href="css/global.css">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+/* â•â• HERO SECTION â•â• */
+#hero { padding: calc(var(--nav-h) + 60px) 48px 40px; background: var(--bg-main); position: relative; overflow: hidden; }
+.hero-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-left { position: relative; z-index: 2; padding-right: 20px; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 14px; font-weight: 700; margin-bottom: 24px; background: var(--accent-light); padding: 6px 16px; border-radius: 50px; }
+.hero-h1 { font-family: var(--font-body); font-size: clamp(44px, 5.5vw, 68px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; color: var(--text-main); margin-bottom: 24px; }
+.premium-text-grad { background: linear-gradient(90deg, var(--accent-red), var(--accent), var(--accent-yellow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+.hero-sub { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; max-width: 480px; }
+
+/* â•â• HERO IMAGE BLOBS â•â• */
+.hero-right { position: relative; z-index: 1; display: flex; justify-content: center; }
+.blob-container { width: 100%; max-width: 500px; aspect-ratio: 1; background: var(--surface-light); border: 1px solid var(--surface-border); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; position: relative; display: flex; justify-content: center; align-items: center; animation: morph 8s ease-in-out infinite alternate; }
+@keyframes morph { 0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; } 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } }
+.blob-image { width: 85%; height: 85%; object-fit: cover; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 80px; animation: morph 8s ease-in-out infinite alternate-reverse; box-shadow: var(--shadow-md); }
+.starburst { position: absolute; top: 10%; left: -10%; width: 60px; height: 60px; }
+
+/* â•â• FLOATING BADGES â•â• */
+.float-card { position: absolute; background: var(--bg-card); padding: 16px 20px; border-radius: 20px; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; animation: float 4s ease-in-out infinite; z-index: 3; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+.fc-1 { bottom: 10%; left: -15%; animation-delay: 0s; }
+.fc-2 { bottom: 20%; right: -10%; background: var(--bg-card); border: 1px solid var(--surface-border); animation-delay: 1s; padding: 12px 18px; border-radius: 50px; }
+.fc-3 { top: 10%; right: -5%; background: var(--text-main); color: #fff; flex-direction: column; justify-content: center; width: 90px; height: 90px; border-radius: 50%; gap: 4px; animation-delay: 2s; text-align: center; }
+
+/* â•â• STATS SECTION â•â• */
+#stats { padding: 40px 48px; background: var(--bg-main); border-bottom: 1px solid rgba(0,0,0,0.03); border-top: 1px solid rgba(0,0,0,0.03); }
+.stats-inner { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+.stat-item { text-align: center; flex: 1; min-width: 150px; }
+.stat-num { font-size: 36px; font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; line-height: 1; }
+.stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; line-height: 1.4; }
+
+/* â•â• TICKER â•â• */
+.ticker-wrap { width: 100%; overflow: hidden; background: var(--text-main); padding: 20px 0; display: flex; }
+.ticker-inner { display: flex; white-space: nowrap; animation: tickerScroll 30s linear infinite; }
+.ticker-item { font-family: var(--font-body); font-size: 14px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 1px; display: inline-flex; align-items: center; }
+.ticker-sep { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin: 0 32px; }
+@keyframes tickerScroll { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+
+/* â•â• SECTORS â•â• */
+.sectors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+.sector-card { background: var(--bg-card); border-radius: 32px; padding: 48px 40px; text-decoration: none; display: flex; flex-direction: column; transition: all 0.3s; box-shadow: var(--shadow-sm); border: 1px solid var(--surface-border); position: relative; overflow: hidden; }
+.sector-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--text-muted); }
+.sector-card.sc-school { }
+.sector-card.sc-college { }
+.sc-icon { font-size: 40px; margin-bottom: 20px; display: block; background: #fff; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%; box-shadow: var(--shadow-sm); }
+.sc-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; display: block; color: var(--text-main); }
+.sc-title { font-size: 32px; font-weight: 800; color: var(--text-main); margin-bottom: 16px; line-height: 1.1; }
+.sc-body { font-size: 15px; color: rgba(38,42,43,0.7); line-height: 1.6; margin-bottom: 24px; }
+.sc-programs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.sc-prog { font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 50px; background: #fff; color: var(--text-main); }
+.sc-link { font-size: 15px; font-weight: 700; color: var(--text-main); display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
+.sector-card:hover .sc-link { gap: 12px; }
+
+/* â•â• NVIDIA STRIP â•â• */
+.nv-strip-inner { background: var(--text-main); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+.nv-bg-shape { position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; background: rgba(255,255,255,0.03); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; animation: morph 15s linear infinite; pointer-events: none; }
+.nv-proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.nv-proof-cell { background: rgba(255,255,255,0.05); padding: 24px; border-radius: 20px; transition: background 0.3s; }
+.nv-proof-cell:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+.nvc-n { font-size: 40px; font-weight: 800; color: var(--accent); line-height: 1; display: block; margin-bottom: 8px; }
+.nvc-t { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; display: block; }
+.nvc-d { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+/* â•â• PROGRAMS GRID (Re-styled) â•â• */
+.prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.p-card { background: var(--bg-card); border-radius: 24px; padding: 32px 28px; text-decoration: none; display: block; box-shadow: var(--shadow-sm); border: 1px solid var(--surface-border); transition: transform 0.3s, border-color 0.3s; position: relative; overflow: hidden; }
+.p-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--text-muted); }
+.pc-badge { font-family: var(--font-mono); font-size: 11px; background: var(--accent-light); color: var(--accent); padding: 4px 10px; border-radius: 50px; margin-bottom: 16px; display: inline-block; font-weight: 600; }
+.pc-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+.pc-title { font-size: 20px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.2; }
+.pc-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+/* â•â• STORY / PILLARS â•â• */
+.story-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.sh-pillars { display: flex; flex-direction: column; gap: 20px; }
+.sh-pillar { padding: 24px; border-radius: 24px; background: var(--bg-card); border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm); display: flex; gap: 20px; transition: transform 0.3s; }
+.sh-pillar:hover { transform: translateX(8px); box-shadow: var(--shadow-md); border-color: var(--text-muted); }
+.sh-pillar-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+
+/* â•â• CTA â•â• */
+.cta-box { background: var(--surface-light); border: 1px solid var(--surface-border); border-radius: 40px; padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+.cta-blob { position: absolute; background: #fff; opacity: 0.8; border-radius: 50%; filter: blur(40px); }
+
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .hero-left { padding-right: 0; }
+  .hero-h1 .highlight::before { left: 50%; transform: translate(-50%, -50%); }
+  .scribble-arrow { display: none; }
+  .sectors-grid { grid-template-columns: 1fr; }
+  .nv-strip-inner { grid-template-columns: 1fr; padding: 40px; gap: 40px; }
+  .prog-grid { grid-template-columns: 1fr 1fr; }
+  .story-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 640px) {
+  #hero { padding: calc(var(--nav-h) + 20px) 24px 40px; }
+  .stats-inner { flex-direction: column; gap: 32px; align-items: center; }
+  .prog-grid { grid-template-columns: 1fr; }
+  .float-card { display: none; }
+  .sector-card { padding: 32px 24px; }
+  .nv-proof-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint">
+  </a>
+  <div class="nav-center">
+    <a href="index.html" class="nav-link active">Home</a>
+    <div class="nav-item">
+      <button class="nav-link">Solutions <span class="chevron">▾</span></button>
+      <div class="mega-drop">
+        <a href="schools.html" class="mega-drop-item">
+          <div class="mega-drop-icon"><i class="ph-duotone ph-backpack" style="font-size:24px;color:var(--accent);"></i></div>
+          <div class="mega-drop-text">
+            <div class="mega-drop-title">Schools — Grade 4 to 12</div>
+            <div class="mega-drop-desc">IoT, Robotics & AI lab programs</div>
+          </div>
+        </a>
+        <a href="colleges.html" class="mega-drop-item">
+          <div class="mega-drop-icon"><i class="ph-duotone ph-student" style="font-size:24px;color:var(--accent);"></i></div>
+          <div class="mega-drop-text">
+            <div class="mega-drop-title">Colleges & Universities</div>
+            <div class="mega-drop-desc">Industrial AI & GPU Compute</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="contact.html" class="btn-nav-primary">Request Demo →</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div id="mobile-nav"><div class="mobile-nav-section"><a href="index.html" class="mobile-nav-link">Home</a><a href="schools.html" class="mobile-nav-link">Schools</a><a href="colleges.html" class="mobile-nav-link">Colleges</a><a href="about.html" class="mobile-nav-link">About</a><a href="contact.html" class="mobile-nav-link">Contact</a></div><a href="contact.html" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Demo →</a></div>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left reveal-left">
+      <div class="hero-tag" style="background: transparent; border: 1px solid rgba(0,0,0,0.08); color: var(--text-main); font-family: var(--font-mono); letter-spacing: 0.5px; font-size: 12px; text-transform: uppercase;">Codeeint Technologies</div>
+      <h1 class="hero-h1">
+        Industrial-Grade<br>
+        <span class="premium-text-grad">Hardware Labs</span><br>for Education.
+      </h1>
+      <p class="hero-sub">We equip schools and engineering colleges with actual industry hardware. From practical robotics kits to NVIDIA GPU clusters, complete with curriculum and live trainers.</p>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn-primary">Request a Free Demo</a>
+        <a href="#sectors" class="btn btn-outline">Explore Programs</a>
+      </div>
+    </div>
+    
+    <div class="hero-right reveal-right delay-1" style="position: relative;">
+      <div class="blob-container" style="background: var(--bg-main); border: 2px solid var(--surface-border); box-shadow: var(--shadow-sm); overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+        <img src="assets/img/home_hero_indian.png" alt="Indian Robotics & AI Lab" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 30%, var(--bg-main) 100%); opacity: 0.4;"></div>
+      </div>
+
+      <div class="float-card fc-1" style="z-index: 10;">
+        <div style="width:36px;height:36px;background:var(--surface-light);border:1px solid var(--surface-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text-main);">HW</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text-main);margin-bottom:2px">Lab Hardware</div>
+          <div style="font-size:10px;color:var(--text-muted)">Robotics & Compute</div>
+        </div>
+      </div>
+      
+      <div class="float-card fc-2" style="z-index: 10;">
+        <div style="width:24px;height:24px;background:var(--text-main);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">+</div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--text-main);line-height:1">Certified</div>
+          <div style="font-size:10px;color:var(--text-muted)">Live Trainers</div>
+        </div>
+      </div>
+
+      <div class="float-card fc-3" style="background: var(--accent); border: none; z-index: 10;">
+        <div style="width:16px;height:16px;background:#fff;transform:rotate(45deg);margin:0 auto"></div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#fff;margin-top:8px;">AI / ML</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">NVIDIA JETSON ORIN<span class="ticker-sep"></span></span>
+    <span class="ticker-item">ROBOTICS LABS<span class="ticker-sep"></span></span>
+    <span class="ticker-item">GPU WORKSTATIONS<span class="ticker-sep"></span></span>
+    <span class="ticker-item">H100 HPC CLUSTERS<span class="ticker-sep"></span></span>
+    <span class="ticker-item">AI ROBOTICS KITS<span class="ticker-sep"></span></span>
+    <span class="ticker-item">CUDA Â· TENSORRT<span class="ticker-sep"></span></span>
+    <span class="ticker-item">GRADE 4 TO 12 CURRICULUM<span class="ticker-sep"></span></span>
+    <span class="ticker-item">FDP FOR FACULTY<span class="ticker-sep"></span></span>
+    <span class="ticker-item">NVIDIA JETSON ORIN<span class="ticker-sep"></span></span>
+    <span class="ticker-item">ROBOTICS LABS<span class="ticker-sep"></span></span>
+    <span class="ticker-item">GPU WORKSTATIONS<span class="ticker-sep"></span></span>
+    <span class="ticker-item">H100 HPC CLUSTERS<span class="ticker-sep"></span></span>
+  </div>
+</div>
+
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <span class="stat-num">90%</span>
+      <span class="stat-label">AI data centres<br>run NVIDIA</span>
+    </div>
+    <div class="stat-item reveal delay-1">
+      <span class="stat-num">275T</span>
+      <span class="stat-label">TOPS AGX Orin<br>AI performance</span>
+    </div>
+    <div class="stat-item reveal delay-2">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Practical &<br>Hands-on Learning</span>
+    </div>
+    <div class="stat-item reveal delay-1">
+      <span class="stat-num">4+</span>
+      <span class="stat-label">International certs<br>per student</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">70+</span>
+      <span class="stat-label">Guided hands-on<br>lab projects</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sectors">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <h2 class="h2">Empowering every<br>educational level.</h2>
+      <p class="body-lg" style="margin:0 auto">From young students discovering hardware to doctoral researchers training LLMs on H100 clusters. Real equipment, real projects, real outcomes.</p>
+    </div>
+    
+    <div class="sectors-grid">
+      <a href="schools.html" class="sector-card sc-school reveal-left">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+          <span class="sc-icon" style="margin-bottom:0; background: var(--surface-light); border: 1px solid var(--surface-border);"><i class="ph-duotone ph-backpack" style="font-size: 36px; color: var(--accent);"></i></span>
+          <span style="font-family:'DM Mono', monospace; font-size:14px; font-weight:700; color:var(--text-muted);">01</span>
+        </div>
+        <span class="sc-label">For Schools</span>
+        <div class="sc-title">IoT & Robotics Labs<br>Grade 4–12</div>
+        <p class="sc-body">Progressive kits moving from blocks to Python. Built specifically for CBSE, ICSE and IB curriculums.</p>
+        <div class="sc-programs">
+          <span class="sc-prog">Foundation Kits</span>
+          <span class="sc-prog">Advanced Kits</span>
+          <span class="sc-prog">Expert AI Modules</span>
+        </div>
+        <span class="sc-link">Explore School Programs <span>→</span></span>
+      </a>
+
+      <a href="colleges.html" class="sector-card sc-college reveal-right">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+          <span class="sc-icon" style="margin-bottom:0; background: var(--surface-light); border: 1px solid var(--surface-border);"><i class="ph-duotone ph-student" style="font-size: 36px; color: var(--accent);"></i></span>
+          <span style="font-family:'DM Mono', monospace; font-size:14px; font-weight:700; color:var(--text-muted);">02</span>
+        </div>
+        <span class="sc-label">For Colleges</span>
+        <div class="sc-title">NVIDIA AI Labs &<br>GPU Compute</div>
+        <p class="sc-body">Jetson Orin edge labs and H100 HPC clusters designed for university research and engineering students.</p>
+        <div class="sc-programs">
+          <span class="sc-prog">Jetson Edge Labs</span>
+          <span class="sc-prog">H100 HPC</span>
+          <span class="sc-prog">Certifications</span>
+        </div>
+        <span class="sc-link">Explore College Programs <span>→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="nv-strip-inner reveal">
+      <div class="nv-bg-shape"></div>
+      <div style="position:relative;z-index:2">
+        <div class="eyebrow" style="color:var(--accent)">Why NVIDIA</div>
+        <h2 class="h2" style="color:#fff">The world runs<br>on NVIDIA.<br>So should your lab.</h2>
+        <p class="body-lg" style="color:rgba(255,255,255,0.7);margin-bottom:24px">90% of AI data centres. Every frontier LLM. NVIDIA is the present infrastructure. Codeeint brings that infrastructure to education.</p>
+        <a href="colleges.html#nvidia" class="btn btn-primary" style="background:#fff;color:var(--text-main);box-shadow:none">See Programs</a>
+      </div>
+      <div class="nv-proof-grid" style="position:relative;z-index:2">
+        <div class="nv-proof-cell">
+          <span class="nvc-n">90%</span><span class="nvc-t">Data Centre Share</span>
+          <div class="nvc-d">AWS, Azure, Google all use NVIDIA as primary AI compute.</div>
+        </div>
+        <div class="nv-proof-cell">
+          <span class="nvc-n">$2T+</span><span class="nvc-t">Market Cap</span>
+          <div class="nvc-d">Most valuable company built on AI infrastructure alone.</div>
+        </div>
+        <div class="nv-proof-cell">
+          <span class="nvc-n">142&times;</span><span class="nvc-t">Orin Leap</span>
+          <div class="nvc-d">Runs LLMs, YOLO, transformers efficiently at the edge.</div>
+        </div>
+        <div class="nv-proof-cell">
+          <span class="nvc-n">&#8377;4500C</span><span class="nvc-t">India's Push</span>
+          <div class="nvc-d">34,000+ NVIDIA GPUs deployed under IndiaAI Mission.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-main)">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">Our Programs</div>
+      <h2 class="h2">Seven ways to partner<br>with Codeeint.</h2>
+    </div>
+    
+    <div class="prog-grid">
+      <a href="#sectors" class="p-card reveal">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <i class="ph-duotone ph-toolbox" style="font-size: 32px; color: var(--accent);"></i>
+          <span class="pc-badge" style="margin-bottom:0;">01 / 07</span>
+        </div>
+        <h3 class="pc-title">Turnkey Lab Setup</h3>
+        <p class="pc-desc">Complete lab infrastructure. Hardware, printed manuals, trainers, and 12-month support.</p>
+      </a>
+      <a href="colleges.html#nvidia" class="p-card reveal delay-1">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <i class="ph-duotone ph-cpu" style="font-size: 32px; color: var(--accent);"></i>
+          <span class="pc-badge" style="margin-bottom:0;">02 / 07</span>
+        </div>
+        <h3 class="pc-title">Edge AI Labs</h3>
+        <p class="pc-desc">Jetson Orin Nano, NX or AGX configured and running on Day 1. JetPack pre-loaded.</p>
+      </a>
+      <a href="colleges.html#robots" class="p-card reveal delay-2">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <i class="ph-duotone ph-robot" style="font-size: 32px; color: var(--accent);"></i>
+          <span class="pc-badge" style="margin-bottom:0;">03 / 07</span>
+        </div>
+        <h3 class="pc-title">AI Robotics</h3>
+        <p class="pc-desc">JetBot, DOFBot Arm, AI Robot Dog. NVIDIA Jetson-powered platforms for hands-on learning.</p>
+      </a>
+      <a href="colleges.html#hpc" class="p-card reveal">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <i class="ph-duotone ph-hard-drives" style="font-size: 32px; color: var(--accent);"></i>
+          <span class="pc-badge" style="margin-bottom:0;">04 / 07</span>
+        </div>
+        <h3 class="pc-title">GPU / HPC</h3>
+        <p class="pc-desc">RTX 4090 workstations to 8&times;H100 SXM5 clusters. Enable large model training on campus.</p>
+      </a>
+      <a href="colleges.html#workshops" class="p-card reveal delay-1">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <i class="ph-duotone ph-chalkboard-teacher" style="font-size: 32px; color: var(--accent);"></i>
+          <span class="pc-badge" style="margin-bottom:0;">05 / 07</span>
+        </div>
+        <h3 class="pc-title">Workshops & FDP</h3>
+        <p class="pc-desc">1–4 day hands-on workshops. Accredited FDP with DLI instructor pathways.</p>
+      </a>
+      <a href="colleges.html#certs" class="p-card reveal delay-2">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <i class="ph-duotone ph-certificate" style="font-size: 32px; color: var(--accent);"></i>
+          <span class="pc-badge" style="margin-bottom:0;">06 / 07</span>
+        </div>
+        <h3 class="pc-title">Certifications</h3>
+        <p class="pc-desc">NVIDIA DLI, AWS/Azure AI, Google ML. Globally recognised credentials.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 48px">
+      <div class="eyebrow" style="justify-content:center">Hardware Capabilities</div>
+      <h2 class="h2">Built for the Classroom<br>& Campus.</h2>
+    </div>
+    <div class="capabilities-grid">
+      <div class="cap-card reveal-left">
+        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_inference.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Inference"></div>
+        <h3 class="cap-title">Real-time Inference</h3>
+        <p class="cap-desc">Run vision models and local LLMs on edge devices without relying on cloud latency.</p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_hardware.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Hardware"></div>
+        <h3 class="cap-title">Custom Hardware</h3>
+        <p class="cap-desc">Carrier boards and chassis specifically built to withstand constant use in academic labs.</p>
+      </div>
+      <div class="cap-card reveal-right">
+        <div class="cap-icon" style="background:transparent; border:none; padding:0; overflow:hidden; border-radius:12px; width:64px; height:64px; margin-bottom:20px;"><img src="assets/img/icon_dashboard.png" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Dashboard"></div>
+        <h3 class="cap-title">Analytics Dashboard</h3>
+        <p class="cap-desc">Monitor hardware utilization, student progress, and lab hours directly from the console.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="section-inner story-inner">
+    <div class="reveal-left">
+      <div class="eyebrow">The Codeeint Story</div>
+      <h2 class="h2">We started with<br>one belief.</h2>
+      <p class="body-lg" style="margin-bottom:24px">Every student in India deserves to learn AI on the same hardware the world actually runs on — not simulations, not shared cloud accounts with 30-minute limits.</p>
+      <p class="body-lg">India produces over 1.5 million engineering graduates per year. Fewer than 3% have deployed a model on an NVIDIA GPU before their first job. We built Codeeint to close that gap with real hardware, curriculum, and live trainers.</p>
+      <a href="about.html" class="btn btn-outline" style="margin-top:24px">Read our full story</a>
+    </div>
+    <div class="sh-pillars reveal-right">
+      <div class="sh-pillar">
+        <div class="sh-pillar-icon" style="background:var(--bg-main);border:1px solid var(--surface-border);font-family:monospace;font-size:14px;color:var(--text-main);font-weight:bold;">01</div>
+        <div>
+          <div style="font-weight:700;font-size:18px;margin-bottom:6px">Industry Standard</div>
+          <p style="font-size:14px;color:var(--text-muted)">We teach the same frameworks used in the field. Because that's what gets students hired.</p>
+        </div>
+      </div>
+      <div class="sh-pillar">
+        <div class="sh-pillar-icon" style="background:var(--bg-main);border:1px solid var(--surface-border);font-family:monospace;font-size:14px;color:var(--text-main);font-weight:bold;">02</div>
+        <div>
+          <div style="font-weight:700;font-size:18px;margin-bottom:6px">Hands-On First</div>
+          <p style="font-size:14px;color:var(--text-muted)">Software theory requires physical hardware to fully comprehend at the edge level.</p>
+        </div>
+      </div>
+      <div class="sh-pillar">
+        <div class="sh-pillar-icon" style="background:var(--bg-main);border:1px solid var(--surface-border);font-family:monospace;font-size:14px;color:var(--text-main);font-weight:bold;">03</div>
+        <div>
+          <div style="font-weight:700;font-size:18px;margin-bottom:6px">Complete Support</div>
+          <p style="font-size:14px;color:var(--text-muted)">We provide the equipment, the curriculum, and the instructors. You provide the room.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="cta-box reveal">
+      <div class="cta-blob" style="width:300px;height:300px;top:-100px;left:-100px"></div>
+      <div class="cta-blob" style="width:250px;height:250px;bottom:-80px;right:-50px"></div>
+      <div style="position:relative;z-index:2">
+        <h2 class="h2">Ready to bring NVIDIA<br>to your institution?</h2>
+        <p class="body-lg" style="margin:0 auto 32px">Share your sector and program interest. We'll return a complete lab proposal within 48 hours. No commitment required.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg">Request Free Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo"><img src="assets/img/logo.png" class="footer-logo-img" alt="Codeeint"></div>
+        <p class="footer-brand-p" style="margin-top:16px; opacity:0.6;">Bringing advanced AI education and industrial robotics to schools and colleges across India.</p>
+        <div class="footer-badges" style="margin-top:20px;"><span class="footer-badge">Industrial AI Ecosystem</span><span class="footer-badge">NEP 2020 Aligned</span></div>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="schools.html">For Schools</a></li>
+          <li><a href="colleges.html">For Colleges</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="flex-direction:column; align-items:flex-start; gap:8px;">
+      <p class="footer-copy">&copy; 2025 Codeeint Technologies Pvt Ltd. All rights reserved.</p>
+      <p style="font-size:11px; opacity:0.4; line-height:1.6;">NVIDIA and related marks are trademarks of NVIDIA Corporation. Codeeint is an independent technology training company.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    if (window.scrollY > 20) { navbar.classList.add('scrolled'); } 
+    else { navbar.classList.remove('scrolled'); }
+  }
+});
+</script>
+</body>
+</html>
+
+
+
