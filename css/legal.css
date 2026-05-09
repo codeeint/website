@@ -42,6 +42,50 @@ body {
     padding: 0 2rem;
 }
 
+/* Legal Pages Layout */
+.legal-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+}
+
+.legal-header {
+    margin-bottom: 4rem;
+    text-align: left;
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+.legal-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.prose {
+    margin-bottom: 4rem;
+}
+
+.prose h3 {
+    font-size: 1.5rem;
+    margin: 3rem 0 1rem;
+    color: var(--orange);
+}
+
+.prose p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
 /* Typography */
 h1, h2, h3, h4 {
     line-height: 1.2;
