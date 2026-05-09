@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers at Codeeint — Join the AI Education Revolution</title>
+<meta name="description" content="Join Codeeint Technologies. Build the future of AI and Robotics education in India. Explore open roles for instructors, developers, and more.">
+<link rel="canonical" href="https://www.codeeint.com/careers.html">
+<link rel="icon" type="image/png" href="assets/img/favicon_globe.png">
+<link rel="stylesheet" href="css/global.css">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+/* Careers-specific styles */
+.careers-hero { background: var(--bg-main); padding: calc(var(--nav-h) + 100px) 48px 100px; position: relative; overflow: hidden; text-align: center; }
+.careers-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+.ch-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-light); border: 1px solid var(--surface-border); border-radius: 30px; padding: 7px 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+.ch-h1 { font-family: var(--font-heading); font-size: clamp(44px, 6vw, 72px); font-weight: 800; line-height: 1.0; letter-spacing: -2px; margin-bottom: 24px; color: var(--text-main); }
+.ch-h1 span { color: var(--accent); }
+.ch-sub { font-size: 18px; color: var(--text-muted); line-height: 1.7; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+/* Open Roles */
+.roles-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+.role-card { background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 20px; padding: 32px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s var(--ease); text-decoration: none; box-shadow: var(--shadow-sm); }
+.role-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow-md); }
+.role-info h3 { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+.role-meta { display: flex; gap: 16px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
+.role-meta span { display: flex; align-items: center; gap: 6px; }
+.role-meta i { color: var(--accent); }
+.role-btn { width: 44px; height: 44px; border-radius: 50%; background: var(--surface-light); display: flex; align-items: center; justify-content: center; color: var(--text-main); font-size: 20px; transition: 0.3s; }
+.role-card:hover .role-btn { background: var(--accent); color: #fff; transform: translateX(5px); }
+
+/* Perks */
+.perks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.perk-card { background: var(--bg-card); border: 1px solid var(--surface-border); border-radius: 20px; padding: 32px; text-align: center; box-shadow: var(--shadow-sm); }
+.perk-icon { font-size: 36px; color: var(--accent); margin-bottom: 16px; display: block; }
+.perk-title { font-size: 18px; font-weight: 700; color: var(--text-main); margin-bottom: 12px; }
+.perk-body { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+@media (max-width: 1024px) {
+  .perks-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .perks-grid { grid-template-columns: 1fr; }
+  .role-card { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .role-btn { width: 100%; border-radius: 12px; height: 48px; }
+  .ch-h1 { font-size: 40px; }
+  .ch-sub { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+
+<header>
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <img src="assets/img/logo.png" class="nav-logo-img" alt="Codeeint Technologies Logo">
+  </a>
+  <div class="nav-center">
+    <a href="/" class="nav-link">Home</a>
+    <div class="nav-item">
+      <button class="nav-link">Solutions <span class="chevron">▾</span></button>
+      <div class="mega-drop">
+        <a href="schools" class="mega-drop-item">
+          <div class="mega-drop-icon"><i class="ph-duotone ph-backpack" style="font-size:24px;color:var(--accent);"></i></div>
+          <div class="mega-drop-text">
+            <div class="mega-drop-title">Schools — Grade 4 to 12</div>
+            <div class="mega-drop-desc">IoT, Robotics & AI lab programs</div>
+          </div>
+        </a>
+        <a href="colleges" class="mega-drop-item">
+          <div class="mega-drop-icon"><i class="ph-duotone ph-student" style="font-size:24px;color:var(--accent);"></i></div>
+          <div class="mega-drop-text">
+            <div class="mega-drop-title">Colleges & Universities</div>
+            <div class="mega-drop-desc">Industrial AI & GPU Compute</div>
+          </div>
+        </a>
+        <a href="research" class="mega-drop-item">
+          <div class="mega-drop-icon"><i class="ph-duotone ph-rocket-launch" style="font-size:24px;color:var(--accent);"></i></div>
+          <div class="mega-drop-text">
+            <div class="mega-drop-title">Startups & Research</div>
+            <div class="mega-drop-desc">Product R&D and Infrastructure</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a href="about" class="nav-link">About</a>
+    <a href="contact" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="contact" class="btn-nav-primary">Request Demo →</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle Navigation"><span></span><span></span><span></span></button>
+</nav>
+
+<div id="mobile-nav"><div class="mobile-nav-section"><a href="/" class="mobile-nav-link">Home</a><a href="schools" class="mobile-nav-link">Schools</a><a href="colleges" class="mobile-nav-link">Colleges</a><a href="research" class="mobile-nav-link">Startups & Research</a><a href="about" class="mobile-nav-link">About</a><a href="contact" class="mobile-nav-link">Contact</a></div>
+<a href="contact" class="btn btn-primary" style="margin: 0 24px; justify-content:center;">Request Demo →</a></div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="careers-hero reveal">
+  <div class="careers-hero-inner">
+    <div class="ch-badge">Join the Mission</div>
+    <h1 class="ch-h1">Build the next generation of<br><span>AI innovators.</span></h1>
+    <p class="ch-sub">We're on a mission to bring real NVIDIA AI hardware to every student in India. We need builders, teachers, and visionaries to make it happen.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="#open-roles" class="btn btn-primary">View Openings</a>
+      <a href="about" class="btn btn-outline">Our Culture →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PERKS -->
+<section class="section" style="background:var(--surface-light);">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto 64px;">
+      <div class="eyebrow" style="justify-content:center">Benefits</div>
+      <h2 class="h2">Why work at Codeeint?</h2>
+    </div>
+    <div class="perks-grid">
+      <div class="perk-card reveal">
+        <i class="ph-duotone ph-cpu perk-icon"></i>
+        <h3 class="perk-title">Silicon Access</h3>
+        <p class="perk-body">Get your hands on the latest NVIDIA Jetson, RTX, and H100 infrastructure before anyone else.</p>
+      </div>
+      <div class="perk-card reveal delay-1">
+        <i class="ph-duotone ph-rocket-launch perk-icon"></i>
+        <h3 class="perk-title">High Growth</h3>
+        <p class="perk-body">We are scaling to 1000+ schools and colleges. Your impact will be felt across the nation.</p>
+      </div>
+      <div class="perk-card reveal delay-2">
+        <i class="ph-duotone ph-heart perk-icon"></i>
+        <h3 class="perk-title">Meaningful Work</h3>
+        <p class="perk-body">Every hour you work contributes to closing the AI skills gap for thousands of Indian students.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN ROLES -->
+<section id="open-roles" class="section">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto 64px;">
+      <div class="eyebrow" style="justify-content:center">Careers</div>
+      <h2 class="h2">Open Roles</h2>
+      <p class="body-lg" style="margin:0 auto">We are looking for talent in Engineering, Education, and Operations.</p>
+    </div>
+    
+    <div class="roles-grid">
+      <!-- Role 3 -->
+      <a href="mailto:careers@codeeint.com?subject=Application for Institutional Sales Manager" class="role-card reveal">
+        <div class="role-info">
+          <h3>Institutional Sales Manager</h3>
+          <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px; line-height:1.4;">We are looking for a high-impact leader with established networks and active contacts in Schools and Engineering Colleges to accelerate our AI lab adoptions.</p>
+          <div class="role-meta">
+            <span><i class="ph-fill ph-map-pin"></i> Remote</span>
+            <span><i class="ph-fill ph-briefcase"></i> Full-time / Part-time</span>
+          </div>
+        </div>
+        <div class="role-btn"><i class="ph-bold ph-arrow-right"></i></div>
+      </a>
+    </div>
+    
+    <div style="text-align:center; margin-top:64px;">
+      <p class="body-lg" style="margin:0 auto 24px;">Don't see a role that fits? We're always looking for great talent.</p>
+      <a href="mailto:careers@codeeint.com" class="btn btn-outline">Send us your CV</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="assets/img/logo.png" class="footer-logo-img" alt="Codeeint" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+          <span style="font-family: var(--font-body); font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -1px;">Codeeint</span>
+        </div>
+        <p class="footer-brand-p" style="margin-top:16px; opacity:0.6;">Bringing advanced AI education and industrial robotics to institutions across India.</p>
+        <div class="footer-badges" style="margin-top:20px;">
+          <span class="footer-badge">Industrial AI Ecosystem</span>
+          <span class="footer-badge">NEP 2020 Aligned</span>
+        </div>
+        <div class="footer-socials" style="margin-top:24px; display:flex; gap:16px;">
+          <a href="https://www.instagram.com/codeeint/" target="_blank" class="footer-social-link"><i class="ph-bold ph-instagram-logo" style="font-size:24px; color:#fff; opacity:0.6; transition:0.3s;"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61589354314339" target="_blank" class="footer-social-link"><i class="ph-bold ph-facebook-logo" style="font-size:24px; color:#fff; opacity:0.6; transition:0.3s;"></i></a>
+          <a href="https://www.linkedin.com/in/codeeint-/" target="_blank" class="footer-social-link"><i class="ph-bold ph-linkedin-logo" style="font-size:24px; color:#fff; opacity:0.6; transition:0.3s;"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="schools">For Schools</a></li>
+          <li><a href="colleges">For Colleges</a></li>
+          <li><a href="research">Startups & Research</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="about">About Us</a></li>
+          <li><a href="careers">Careers</a></li>
+          <li><a href="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy">Privacy Policy</a></li>
+          <li><a href="terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Codeeint Technologies Pvt Ltd. All rights reserved.</p>
+      <p style="font-size:13px; opacity:0.8; line-height:1.6; margin-top:8px;">NVIDIA and related marks are trademarks of <a href="https://www.nvidia.com/en-in/" target="_blank" style="color:inherit; text-decoration:underline;">NVIDIA Corporation</a>. Codeeint is an independent technology training company.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Simple reveal observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
